@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<title>购物车</title>
+	</head>
+	<style>
+		@font-face { font-family: "app"; src: url('../css/iconfont.ttf') format('truetype'); }
+		.app { font-family: "app" !important; font-style: normal; -webkit-font-smoothing: antialiased; }
+		*{
+			margin: 0;padding: 0;
+		}
+		header{
+			position: relative;border-bottom: 0.1rem solid #E5E5E5;
+			height: 3rem;width: 100%;box-sizing: border-box;
+		}
+		header span{
+			display: block;height: 100%;width: 100%;text-align: center;line-height: 3rem;color: #515151;font-size: 1.2rem;
+		}
+		.back{
+			position: absolute;top:0;left:0;height: 3rem;width: 3rem;font-size: 1rem;text-align: center;line-height: 3rem;font-family: "app";
+		}
+		.title{
+			color: #515151;
+		}
+		.main_con{
+			position: absolute;top:3rem;left:0;bottom:3rem;overflow: auto;-webkit-overflow-scrolling: touch;
+		}
+		.main_con_f{
+			width: 94vw;height: auto;padding: 3vw;
+		}
+		.main_con_son{
+			height: 7rem;width: 100%;margin-bottom: 0.5rem;
+		}
+		.main_con_son img{
+			float: left;width: 35%;height: 100%;background: #E5E5E5;object-fit: cover;
+		}
+		.main_con_text{
+			width: 65%;height: 100%;float: left;background: #fff;position: relative;
+		}
+		.main_con_text span{
+			margin-left: 0.3rem;margin-top: 0.1rem;display: block;background: #fff;
+		}
+		.main_con_text span:nth-of-type(1){
+			font-size: 1.2rem;line-height: 2rem;
+		}
+		.main_con_text span:nth-of-type(3){
+			font-size: 1rem;color: #c6c6c6;line-height: 1.2rem;
+		}
+		.main_con_text span:nth-of-type(4){
+			position: absolute;top:0.5rem;right:0.5rem;color: #FE2B2B;font-size: 1.2rem;
+		}
+		.main_con_text span:nth-of-type(5){
+			position: absolute;bottom:3rem;right:1rem;color: #ccc;font-size: 1.2rem;border-radius: 50%;width: 1rem;height: 1rem;
+			cursor: pointer;text-align: center;line-height: 1rem;font-family: "app";
+		}
+		.total{
+			width: 100%;height: 4rem;position: relative;margin: 1rem auto;padding-top: 1rem;
+		}
+		.total span{
+			color: #C4C4C4;word-break: normal;
+		}
+		.total span b{
+			color: #333;font-weight: 400;
+		} 
+		.total_son{
+			position: absolute;right: 0.5rem;bottom: 0.5rem;border:0.1rem solid #E4E4E4;padding: 0.2rem 0.4rem;color: #5A5A5A;
+		}
+		.change{
+			position: absolute;left:0;bottom: 0;width: 100%;height: 3rem;background: #18D48B;color: #fff;text-align: center;line-height: 3rem;
+		}
+		.sec_all{
+			width: 80%;height: 3rem;margin-left: 1rem;
+		}
+		.sec_all span{
+			line-height: 3rem;color: #747474;font-size: 1rem;
+		}
+		.sec_all span:first-child{
+			font-family: "app";
+			font-size: 1.2rem;
+			color: #ccc;cursor: pointer;
+		}
+	</style>
+	<body>
+		<header>
+			<div class="back mui-action-back">&#xe62d;</div>
+			<span class="title">购物车</span>
+		</header>
+		<div class="main_con">
+			<div class="sec_all">
+				<span>&#xe621;</span>
+				<span>全部选中</span>
+				
+			</div>
+			<div class="main_con_f">
+				<div class="main_con_son">
+					<img src="../img/father.jpg" alt="" />
+					<div class="main_con_text">
+						<span>商品主标题</span>
+						<span>商品副标题</span>
+						<span>落叶黄 女款34-35码</span>
+						<span>759积分</span>
+						<span>&#xe621;</span>
+					</div>
+				</div>
+				<div class="main_con_son">
+					<img src="../img/father.jpg" alt="" />
+					<div class="main_con_text">
+						<span>商品主标题</span>
+						<span>商品副标题</span>
+						<span>落叶黄 女款34-35码</span>
+						<span>759积分</span>
+						<span>&#xe621;</span>
+					</div>
+				</div>
+				<div class="main_con_son">
+					<img src="../img/father.jpg" alt="" />
+					<div class="main_con_text">
+						<span>商品主标题</span>
+						<span>商品副标题</span>
+						<span>落叶黄 女款34-35码</span>
+						<span>759积分</span>
+						<span>&#xe621;</span>
+					</div>
+				</div>
+				<div class="main_con_son">
+					<img src="../img/father.jpg" alt="" />
+					<div class="main_con_text">
+						<span>商品主标题</span>
+						<span>商品副标题</span>
+						<span>落叶黄 女款34-35码</span>
+						<span>759积分</span>
+						<span>&#xe621;</span>
+					</div>
+				</div>
+				<div class="main_con_son">
+					<img src="../img/father.jpg" alt="" />
+					<div class="main_con_text">
+						<span>商品主标题</span>
+						<span>商品副标题</span>
+						<span>落叶黄 女款34-35码</span>
+						<span>759积分</span>
+						<span>&#xe621;</span>
+					</div>
+				</div>
+				<div class="main_con_son">
+					<img src="../img/father.jpg" alt="" />
+					<div class="main_con_text">
+						<span>商品主标题</span>
+						<span>商品副标题</span>
+						<span>落叶黄 女款34-35码</span>
+						<span>759积分</span>
+						<span>&#xe621;</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--立即兑换-->
+		<div class="change">
+			立即兑换
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".main_con").delegate(".main_con_son .main_con_text span:nth-of-type(5)","click",function(){
+				if(!$(this).attr("sec")){
+					$(this).css({
+						"color":"#18D48B",
+						"fontWeight":"800"
+					}).attr("sec","sec")
+				}else{
+					$(this).css({
+						"color":"#ccc",
+						"fontWeight":"400"
+					}).removeAttr("sec")
+				}
+			})
+			$(".sec_all").click(function(){
+				
+				if(!$(".main_con_son .main_con_text span:nth-of-type(5)").attr("sec")){
+					$(".main_con_son .main_con_text span:nth-of-type(5)").attr("sec","sec").css({
+						"color":"#18D48B",
+						"fontWeight":"800"
+					})
+					$(this).children().css({
+						"color":"#18D48B"
+					})
+				}else{
+					$(".main_con_son .main_con_text span:nth-of-type(5)").removeAttr("sec","sec").css({
+						"color":"#ccc",
+						"fontWeight":"400"
+					})
+					$(this).children().css({
+						"color":"#ccc"
+					})
+				}
+				
+			})
+		})
+	</script>
+</html>

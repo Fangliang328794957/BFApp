@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css"/>
+    	<link rel="stylesheet" href="css/mui.min.css" />
+	</head>
+	<style>
+		#Btn{
+			margin: 1rem auto;width: 100vw;color: #333;height: 2.4rem;line-height: 2.4rem;
+			background: #fff;text-align: center;font-size: 1rem;
+		}
+		.mui-input-row{
+			background: #fff;border-bottom: 1px solid #f0f0f0;box-sizing: border-box;
+		}
+	</style>
+	<body>
+		<header>
+			<span class="title">修改密码</span>
+			<span class="left back"></span>
+		</header>
+		<div></div>
+		<div class="mui-input-row">
+		    <label>旧密码</label>
+		    <input type="password" class="mui-input-password" id="oldPass" placeholder="请输入旧密码">
+		</div>
+		<div class="mui-input-row">
+		    <label>新密码</label>
+		    <input type="password" class="mui-input-password" id="newPass" placeholder="请输入新密码">
+		</div>
+		<div class="mui-input-row">
+		    <label>确认密码</label>
+		    <input type="password" class="mui-input-password" id="surePass" placeholder="请再次确认密码">
+		</div>
+		<div id="Btn">确认修改</div>
+	</body>
+	<script>
+		$(function(){
+			$("header .left").click(function(){
+				location.href="system.html";
+			});
+			$("#Btn").click(function(){
+				var oldPass=$("#oldPass").val();
+				var newPass=$("#newPass").val();
+				var surePass=$("#surePass").val();
+				if(!oldPass||!newPass||!surePass){
+					$.dialog({msg:"密码不可为空"});
+				}else{
+					//新密码与确认密码要一致
+					if(newPass==surePass){
+						$.ajax_({
+							method:"EditPass",
+							data:{"mobile":localStorage.getItem("uname"),"oldpass":oldPass,"newpass":newPass}, //传递过去的数据，手机号 旧密码  新密码
+							success:function(d){
+								if(d){
+									$.dialog({msg:"修改成功"});
+									//清除localStorage，和退出一样
+									localStorage.removeItem("StudentBodyCompare");
+									localStorage.removeItem("report");
+									localStorage.removeItem("user");
+									localStorage.removeItem("uname");
+									localStorage.removeItem("pass");	
+									location.href="index.html";
+								}else{
+									$.dialog({msg:"修改失败"});
+								}
+							}
+						})
+					}else{
+						$.dialog({msg:"两次密码不一致"});
+					}
+					
+				}
+			})
+			
+		})
+	</script>
+</html>

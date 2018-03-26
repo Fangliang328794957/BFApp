@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/address.js"></script>
+		<title>商品详情</title>
+	</head>
+	<style>
+		@font-face { font-family: "app"; src: url('../css/iconfont.ttf') format('truetype'); }
+		.app { font-family: "app" !important; font-style: normal; -webkit-font-smoothing: antialiased; }
+		*{
+			margin: 0;padding: 0;
+		}
+		header{
+			position: relative;border-bottom: 0.1rem solid #E5E5E5;
+			height: 3rem;width: 100%;
+		}
+		.back{
+			position: absolute;top:0;left:0;height: 3rem;width: 3rem;font-size: 1rem;text-align: center;line-height: 3rem;font-family: "app";
+		}
+		.mid{
+			width: 35%;height: 2rem;margin: 0.5rem auto;border: 0.1rem solid #E1E1E1;border-radius: 0.5rem;
+			position: absolute;top:0;left:0;right: 0;bottom: 0;margin: auto;
+		}
+		.mid_left{
+			width: 50%;height: 100%;float: left;text-align: center;line-height: 2rem;
+		}
+		.mid .mid_left:first-child{
+			border-right: 0.1rem solid #E1E1E1;box-sizing: border-box;background: #BFBFBF;border-top-left-radius: 0.5rem;border-bottom-left-radius: 0.5rem;
+		}
+		.main_con{
+			position: absolute;top:3rem;left:0;bottom:3rem;right: 0;overflow: auto;-webkit-overflow-scrolling: touch;
+		}
+		.main_bot{
+			width: 100%;height: 3rem;position: absolute;bottom: 0;left:0;
+		}
+		.main_bot_l,.main_bot_r{
+			width: 50%;height: 100%;float: left;color: #515151;text-align: center;line-height: 3rem;
+		}
+		.main_bot_r{
+			background: #18D48B;color: #fff;
+		}
+		.main_con_img{
+			width: 100%;object-fit: cover;height: auto;
+		}
+		.main_con_info{
+			width: 94vw;padding: 3vw;height: 5rem;position: relative;
+		}
+		.main_con .span{
+			margin-left: 0.5rem;
+		}
+		.span1{
+			color: #35D999;
+		}
+		.main_con_info span:nth-of-type(1){
+			font-size: 1.2rem;
+		}
+		.main_con_info span:nth-of-type(2){
+			color:#B6B6B6;line-height: 2rem;
+		}
+		.main_con_info b{
+			color: #fe0000;
+		}
+		s{
+			color: #b6b6b6;
+		}
+		.city{
+			width: 94vw;padding: 3vw;height: 3rem;background: #fff;padding-top: 1rem;
+		}
+		.city select{
+			border: 0.1rem solid #BFBFBF;
+			box-shadow: none;outline: none;
+			text-align: center;height: 2rem;line-height: 2rem;border-radius:0.3rem ;background: #fff;
+		}
+		.save{
+			position: absolute;top:0;bottom:0;margin-bottom: auto;margin-top: auto;right:1rem;
+			width: 3rem;height: auto;background: red;font-size: 1.2rem;
+		}
+		.save span:first-child{
+			width: 100%;text-align: center;
+		}
+		.save span:first-child:before{
+			font-family: "app";
+			content: "\e616";
+			text-align: center;
+		}
+		.save span{
+			text-align: center;
+		}
+	</style>
+	<body>
+		<header>
+			<div class="back mui-action-back">&#xe62d;</div>
+			<div class="mid">
+				<div class="mid_left">商品</div>
+				<div class="mid_left">详细</div>
+			</div>
+		</header>
+		<div class="main_con">
+			<img src="../img/p5.jpg" class="main_con_img" alt="" />	
+			<div class="main_con_info">
+				<span>商品标题</span><br>
+				<span>商品副标题</span><br>
+				<b>579积分</b>
+				<s>￥20.00</s>
+				<!--收藏-->
+				<div class="save">
+					<span></span>
+					<br><sapn>收藏</sapn>
+				</div>
+			</div>
+			<span class="span">配送区域</span>
+			<span class="span span1">运费￥20（到付/包邮/在线支付）</span>
+			<!--省市县三级联动-->
+			<div class="city">
+				<select id="cmbProvince" name="cmbProvince"></select>  
+                <select id="cmbCity" name="cmbCity"></select>  
+                <select id="cmbArea" name="cmbArea"></select>  
+			</div>
+		</div>
+		<div class="main_bot">
+			<div class="main_bot_l">
+				加入购物车
+			</div>
+			<div class="main_bot_r">
+				立即兑换
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			addressInit('cmbProvince', 'cmbCity', 'cmbArea');  
+		})
+	</script>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>详情页</title>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" href="css/detailPage.css" />
+	</head>
+	<style>
+		html,body{
+			background: #fff;
+			-webkit-overflow-scrolling: touch;
+ 			overflow-y: scroll; 
+		}
+		p{
+			overflow: hidden;
+		}
+		.cons_text img{
+			width: 100%;height: auto;object-fit: cover;
+		}
+		.back{
+			width: 3rem;
+			height: 3rem;
+			position: absolute;
+			top:0;
+			left:0rem;
+			text-align: center;
+			line-height: 3rem;
+			color: #fff;
+		}
+		.cons{
+			-webkit-overflow-scrolling: touch;
+ 			overflow-y: scroll; 
+			position: absolute;
+			top:3rem;bottom:3rem;
+			left:0;right: 0;
+		}
+		.back:before{
+			font-family: app;
+			content: '\e62d';
+		}
+		.cons_text p{
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		.cons_text p img{
+			width: 100%;
+			height: 100%;
+		}
+		#header{
+			position: absolute;top:0;left:0;right: 0;
+		}
+	</style>
+	<body ontouchstart>
+		<header id="heder">
+			<div class="back mui-action-back"></div>
+			<span class="title">详细</span>
+		</header>
+		<div class="cons">
+			<!--评论-->
+			<h4 class="h4">精彩评论</h4>
+			<div class="cons_talkF">
+				
+			</div>
+		</div>
+		<!--输入评论-->
+		<div class="write">
+			<input type="text" class="write_input" id="write_input_" placeholder=" 评 论"/>
+			<span>&#xe657;</span>
+			
+		</div>
+	</body>
+	<script>
+		$(function(){
+			
+			document.addEventListener('plusready',function () {
+	      		// 在这里调用plus api
+	       		var self = plus.webview.currentWebview();
+				aparticle_id = self.aparticle_id;//文章id
+				aparticle_time = self.aparticle_time;//文章时间
+				aparticle_comment = self.aparticle_comment;//文章评论
+				aparticle_commend = self.aparticle_commend;//文章推荐
+				aparticle_laud=self.aparticle_laud     //点赞数量
+				if(aparticle_laud==1){
+					$(".write span").css("color","#19d58b");
+				}else{
+					$(".write span").css("color","gray");
+				}
+				//点赞
+				$(".write span").click(function(){
+					$.ajax_({
+						method:"AppArticleLaud",
+						data:{'aparticle_id':aparticle_id},
+						success:function(e){
+							if(aparticle_laud==1){//证明是 已点赞状态
+								$(".write span").css("color","gray");
+								$.dialog({"msg":"取消成功"});
+								aparticle_laud=0;
+							}else{
+								$(".write span").css("color","#19d58b");
+								$.dialog({"msg":"点赞成功"});
+								aparticle_laud=1
+							}
+						}
+					})
+				})
+				$.ajax_({
+					method:"AppArticleGet",
+					data:{"id":aparticle_id},
+					success:function(e){
+						var data=JSON.parse(e.d);
+						var str=$.Base64Decode(data.msg);
+						var src=str.replace(/src=[\'\"]\/Plugins\//g, "src="+'"'+"http://files.yphtoy.com/Plugins/");
+					
+						$("<div>").addClass("cons_text").html(`
+							<p>${src}</p>
+						`).prependTo($(".cons"));
+						$("<div>").addClass("cons_title").html(`
+							<img src="img/head-bg.jpg" class="cons_titleImg"/>
+							<span class="cons_titleSon">${$.Base64Decode(data.title)}</span>
+							<div class="cons_titleInfo">
+								<span>${aparticle_time.substr(5).replace(/\//,"-")}</span>
+								<span style="margin: 0 1rem;">${aparticle_comment}评论</span>
+								<span>${aparticle_laud}赞</span>
+							</div>
+						`).prependTo($(".cons"));
+					}
+				})
+				//获取评论列表
+				$.ajax_({
+					method:"AppArticleCommentList",
+					data:{"aparticle_id":aparticle_id},//文章id
+					success:function(e){
+						var data=JSON.parse(e.d);
+						if(data.count==0){
+							$("<div>").addClass("cons_talk").html(`
+								<img class="cons_talkImg" src="img/head.png" alt="" />
+								<div class="cons_talkSon">
+									<span class="cons_talkName">王鑫奎的父母</span><br>
+									<span class="cons_talkTime">昨天 13.33</span>
+									<p class="cons_talkInfo">非常棒的文章</p>
+								</div>
+							`).appendTo($(".cons_talkF"))
+						}else{
+							$(".cons_talkF").empty();
+							var lists=data.list;
+							lists.map(function(index){
+								console.log(JSON.stringify(index))
+								$("<div>").addClass("cons_talk").html(`
+									<img class="cons_talkImg" src="img/head.png" alt="" />
+									<div class="cons_talkSon">
+										<span class="cons_talkName">${$.Base64Decode(index.name)}的父母</span><br>
+										<span class="cons_talkTime">${index.intime.substr(5)}</span>
+										<p class="cons_talkInfo">${$.Base64Decode(index.msg)}</p>
+									</div>
+								`).appendTo($(".cons_talkF"))
+							})
+						}
+					}
+				});
+				//input框获取焦点
+				$("body").delegate(".write_input","click",function(){
+					document.getElementById('write_input_').focus()
+					$(".write").empty().html(`
+		    			<input type="text" class="write_input1" placeholder="请输入内容..." autofocus="autofocus"/>
+						<p class="write_btn">&#xe642;</p>
+						<p class="write_btn write_Img">&#xe60d;</p>
+						<p class="write_btn write_Go">发送</p>
+		    		`);
+				})
+		    	//呼起本地相册，插入图片
+		    	$(".write").delegate(".write_Img","click",function(){
+		    		var that=this;
+		    	})
+		    	//提交评论
+		    	$(".write").delegate(".write_Go","click",function(){
+		    		var that=this;
+		    		if($(".write_input1").val()==""){
+		    			$.dialog({"msg":"评论内容不可为空！"});
+		    		}else{
+		    			$.ajax_({
+		    				method:"AppArticleCommentAdd",
+		    				data:{"aparticle_id":aparticle_id,"msg":$.Base64Encode($(that).siblings(".write_input1").val())},
+		    				success:function(e){
+		    					//返回数字 代表评论成功
+		    					if(e.d){
+		    						$.dialog({"msg":"发布成功！"});
+		    						console.log(localStorage)
+									$("<div>").addClass("cons_talk").html(`
+											<img class="cons_talkImg" src="img/head.png" alt="" />
+											<div class="cons_talkSon">
+												<span class="cons_talkName">${JSON.parse(localStorage.getItem("user"))['name']}的父母</span><br>
+												<span class="cons_talkTime">${new Date().toLocaleDateString().substr(5,8).replace(/\//,"-")}</span>
+												<p class="cons_talkInfo">${$(that).siblings(".write_input1").val()}</p>
+											</div>
+									`).prependTo($(".cons_talkF"));
+		    						$(".write_input1").val(" ");
+		    					}
+		    				}
+		    			})
+		    		}
+		    	})
+	    	},false);
+	    	
+		})
+	</script>
+</html>

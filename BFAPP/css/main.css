@@ -1,0 +1,65 @@
+body > div { position: absolute; top: 0; bottom: 3.5rem; left: 0; right: 0; overflow: auto; z-index: 1; -webkit-overflow-scrolling: touch; /*加这个就会有不显示问题*/ }
+#bg { height: 55%; position:relative; }
+	#bg > * { position:absolute; width: 100%; }
+    #bg img#appbg { object-fit: cover; height:100%; }
+    #bg span { display: block; text-align:center; top:40%; }
+    #bg img#head { width: 5rem; height: 5rem; object-fit: cover; border-radius: 50%; border: .1rem solid #FFF; }
+    #bg p { top: 70%; background-color: rgba(0,0,0,.4); text-align: center; color: #FFF; font-size: .9rem; line-height: 1.5rem; padding: .2rem 0; margin: .9rem 0 0 0; }
+        #bg p i { font-style: normal; clear: both; display: block; font-size: 1.1rem; }
+
+.line { background-color: #FFF; margin-bottom: .5rem; height: 4rem; }
+.item { height: 4rem; color: #666; }
+.line span { width: 50%; display: block; float: left; line-height: 4rem; text-align: center; }
+    .line span:first-child { border-right: 1px solid #F2F2F2; box-sizing: border-box; }
+.line i { font-style: normal; font-size: 1rem; line-height: 4rem; }
+.item i { margin-right: .5rem; }
+.line > i:after { font-family: app; vertical-align: top; margin-left: -.3rem; font-size: 1.5rem; }
+.line > i { padding-left: 1rem; display: block; float: left; }
+    .line > i p { margin: 0; display: block; float: left; line-height: 4.2rem; }
+.line samp { font-size: 1.7rem; font-family: "微软雅黑"; line-height: 4rem; }
+.line:nth-child(2) samp { font-size: 1.2rem; }
+.line u { text-decoration: none; font-size: .9rem; }
+.line a { font-size: .9rem; float: right; line-height: 4rem; padding-right: 1rem; text-decoration: none; color: #777; }
+/*.item:hover{background-color: #15B175; color: #FFF!important;}*/
+.item.hover, .item.hover a { background-color: #15B175; color: #FFF !important; }
+.item .x { -webkit-transform: translateZ(0); }
+#weight { color: #FBB03B; }
+#height { color: #36CBFE; }
+#bmi { color: #16D38A; }
+#bust {color: #16D38A;}
+#sitheight {color: #9266F9;}
+#skinfold {color: #F49069;}
+#eye{color: #16C2C2;}
+#vitalcapacity{color: #FF6CC4;}
+#staticheart{color: #9266F9;}
+#weight i:after { content: '\e62e'; }
+#height i:after { content: '\e627'; }
+#bmi i:after { content: '\e631'; }
+#bust i:after { content: '\e635'; }
+#sitheight i:after { content: '\e639'; }
+#skinfold i:after { content: '\e637'; }
+#eye i:after{content: '\e636';}
+#vitalcapacity i:after{content: '\e634';}
+#staticheart i:after{content: '\e638';}
+
+.container { width: 90%; height: 12rem; margin: 0 auto; position: relative; -webkit-perspective: 800px; }
+.card { width: 100%; height: 11rem; top: .5rem; position: absolute; -webkit-transition: -webkit-transform 300ms; -webkit-transform-style: preserve-3d; }
+    .card.flipped { -webkit-transform: rotateY( 180deg ); }
+    .card div { display: block; height: 11rem; width: 100%; position: relative; -webkit-backface-visibility: hidden; z-index: 1; }
+    .card .front { text-align: center; font-size: 2rem; color: #FFF; }
+    .card .back { background-color: #FFF; border-radius: .8rem; position: absolute; top: 0; -webkit-transform: rotateY( 180deg ); color: #666; }
+    .card .front img { width: 100%; height: 11rem; object-fit: cover; border-radius: .8rem; -webkit-filter: blur(.15rem); }
+    .card .front span { position: absolute; line-height: 11rem; top: 0; width: 100%; text-align: center; display: block; }
+    .card .back span.head { text-align: center; display: block; padding: .5rem 0 .2rem 0; }
+        .card .back span.head img { object-fit: cover; width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid #4BBBEF; }
+    .card .back span.title { display: block; text-align: center; color: #4BBBEF; font-size: .8rem; padding-bottom: .8rem; }
+    .card .back div { width: 50%; box-sizing: border-box; display: block; float: left; height: auto; }
+        .card .back div.left { border-right: 1px solid #F2F2F2 }
+        .card .back div span { display: block; clear: both; }
+            .card .back div span i { font-style: normal; font-size: .9rem; display: block; float: left; padding-left: .9rem; width: 3.6rem; line-height: 2.1rem; }
+        .card .back div.right span i { padding-left: 2rem; width: 2.2rem; }
+        .card .back div span u { font-style: normal; font-size: 4.5vw; line-height: 1.7rem; display: block; float: left; font-family: "微软雅黑"; text-decoration: none; }
+        .card .back div span samp { font-style: normal; font-size: .8rem; display: block; float: left; font-family: "微软雅黑"; padding-left: .1rem; line-height: 2.1rem; }
+#father .card .back { position: absolute; top: 0; }
+
+#hh { display: none; height: 1px; }

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>育儿干货（社区分类）</title>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+	</head>
+	<style type="text/css">
+		body{
+			-webkit-overflow-scrolling: touch;
+		}
+		.back{
+			width: 3rem;
+			height: 3rem;
+			position: absolute;
+			top:0;
+			left:0rem;
+			text-align: center;
+			line-height: 3rem;
+			color: #fff;
+		}
+		.back:before{
+			font-family: app;
+			content: '\e62d';
+		}
+		.category{
+			position: fixed;
+			top:3rem;
+			left:0;
+			bottom: 0;
+			overflow: auto;
+			width: 94vw;
+			padding: 3vw;
+			height: auto;
+		}
+		.category_info{
+			width: 100%;
+			height: auto;
+		}
+		.category_info category_infoSon:last-child{
+			border:none
+		}
+		.category_infoSon{
+			width: 100%;
+			height:auto;
+			border-bottom:0.3rem solid #eee;
+			cursor: pointer;
+		}
+		.category_bot{
+			width: 100%;
+			height: 6rem;
+			text-align: center;
+			line-height: 6rem;
+			font-size: 1rem;
+			color: $b1b1b1;
+			background: #f8f8f8;
+		}
+		/*专栏*/
+		.zl_infoSon{
+			width: 100%;
+			height: 16rem;
+			border-bottom: 0.01rem solid #eee;
+		}
+		.zl_infoSon span{
+			word-break:normal;
+			display: block;
+			width: 100%;
+		}
+		.zl_infoSonImg{
+			width: 100%;
+			height: 10rem;
+			background: gray;
+			display: block;
+			margin: 0.5rem 0;
+			object-fit: cover;
+		}
+		.zl_infoSon h6{
+			display: block;
+			width: 100%;
+			height: auto;
+			color: gray;
+			margin: 0.3rem;
+		}
+		.logo{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			font-size: 0.6rem;
+			height: 1.5rem;
+		}
+		.logo span{
+			font-family: app;
+			display: block;
+			float:left;
+			width: 20vw;
+			text-align: center;
+			font-size: 0.8rem;
+			color: #b2b2b2;
+		}
+		.logo span:nth-child(1):before{
+			content: "\e636";
+		}
+		.logo span:nth-child(2):before{
+			content: "\e645";
+		}
+		.logo span:nth-child(3):before{
+			content: "\e657";
+		}
+		.zl_infoSon_{
+			width: 100%;
+			height: 3.5rem;
+			margin-top: 0.5rem;
+		}
+		.zl_infoSon_ img{
+			width: 3rem;
+			height: 3rem;
+			border-radius:50%;
+			float: left;
+			
+			background: #fff;
+		}
+		.zl_infoSon_ span{
+			word-break: normal;
+			float: right;
+			width: 77vw;
+			height: 100%;
+		}
+	</style>
+	<body ontouchstart>
+		<header>
+			<div class="back mui-action-back"></div>
+			<span class="title">（社区分类）</span>
+		</header>
+		<div class="category">
+			<div class="category_info">
+				<!--内容-->
+			</div>
+			<div class="category_bot">已显示全部</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			document.addEventListener('plusready',function () {
+				 // 在这里调用plus api
+	       		var self = plus.webview.currentWebview();
+				var category_sq_id = self.category_sq_id;
+				var category_sq_title = self.category_sq_title;
+//				console.log(category_sq_id)
+				$(".title").html(`
+					${category_sq_title}(社区分类)
+				`);
+				$.ajax_({
+					method:"AppArticleList",
+					data:{"currentpage":1,"pagesize":10,"type":category_sq_id,"like":false,"by":0},
+					success:function(e){
+//						console.log(e.d)
+						var data=JSON.parse(e.d);
+						if(data.count==0){
+							$("<div>").addClass("category_infoSon").html(`
+									<div class="zl_infoSon" style="position: relative;" aparticle_id="12" laud="1" aparticle_commend="0" aparticle_comment="0" aparticle_time="0">
+										<div class="zl_infoSon_">
+											<img  src="img/head.png" alt="" />
+											<span>专栏主题宝贝护理专栏</span>
+										</div>
+										<img class="zl_infoSonImg" src="img/p3.jpg" alt="" />
+										<h6>刚刚 发布</h6>
+										<div class="logo">
+											<span>45</span>
+											<span>345</span>
+											<span>45</span>
+										</div>
+									</div>
+							`).appendTo($(".category_info"))
+						}else{
+							var lists=data.list;
+							lists.map(function(index){
+								if(index.img==""){
+									$("<div>").addClass("category_infoSon").html(`
+										<div class="zl_infoSon" style="position: relative;" aparticle_id="${index.id}" laud="${index.laud}" aparticle_commend="${index.commend}" aparticle_comment="${index.comment}" aparticle_time="${index.intime}">
+											<div class="zl_infoSon_">
+												<img src="img/head.png" alt="" />
+												<span>${$.Base64Decode(index.title)}</span>
+											</div>
+											<img src="img/head-bg.jpg" class="zl_infoSonImg" alt="" />
+											<h6>刚刚 发布</h6>
+											<div class="logo">
+												<span>${index.num}</span>
+												<span> ${index.comment} </span>
+												<span> ${index.laud}</span>
+											</div>
+										</div>
+									`).appendTo($(".category_info"))
+								}else{
+									//如果不是http开头的，那么需要在前面加上http://files.yphtoy.com
+									var f=index.img.substring(0,1);
+									if(f=="/"){
+										index.img="http://files.yphtoy.com"+index.img
+									}else{
+										index.img=index.img;
+									}
+									
+									$("<div>").addClass("category_infoSon").html(`
+										<div class="zl_infoSon" style="position: relative;" aparticle_id="${index.id}" laud="${index.laud}" aparticle_commend="${index.commend}" aparticle_comment="${index.comment}" aparticle_time="${index.intime}">
+											<div class="zl_infoSon_">
+												<img  src="img/head.png"  alt="" />
+												<span>${$.Base64Decode(index.title)}</span>
+											</div>
+											<img src="${index.img}" class="zl_infoSonImg" alt="" />
+											<h6>刚刚 发布</h6>
+											<div class="logo">
+												<span>${index.num}</span>
+												<span> ${index.comment} </span>
+												<span> ${index.laud}</span>
+											</div>
+										</div>
+									`).appendTo($(".category_info"))
+								}
+							})
+						}
+						
+					}
+				})
+				$("body").delegate(".category_infoSon","click",function(){
+					var that=this;
+					
+					//打开文章详情页
+					mui.openWindow({
+						url:"detailPage.html",
+						id:'info1',
+						extras:{
+							aparticle_id:$(that).children(".zl_infoSon").attr("aparticle_id"),   //文章id
+							aparticle_time:$(that).children(".zl_infoSon").attr("aparticle_time"),   //时间
+							aparticle_comment:$(that).children(".zl_infoSon").attr("aparticle_comment"),     //评论数量
+							aparticle_commend:$(that).children(".zl_infoSon").attr("aparticle_commend"),     //点赞数
+							aparticle_laud:$(that).children(".zl_infoSon").attr("laud")                       //点赞状态
+						},
+						waiting:{
+							autoShow:false,
+						}
+					})
+				})
+				
+			})
+		
+		})
+	</script>
+</html>

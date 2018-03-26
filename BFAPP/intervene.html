@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css" />
+    	<style type="text/css">
+    		#content { position: absolute; top: 3rem; bottom:0; left: 0; right: 0; overflow-x:hidden; overflow-y: auto; z-index: 1; -webkit-overflow-scrolling: touch;}
+    		#msg{padding: 1rem; line-height: 1.8;}
+    		.contentlink{ outline: none; text-align: center; position: fixed !important; bottom: 1%; left:0%; width: 100%; }
+			.contentlink a{color: #FFFFFF; text-decoration: none; display: inline-block; background:#FF6CC4; padding: 2% 16%; border-radius: 8px;}
+
+    	</style>
+	</head>
+	<body ontouchstart>
+		<header>
+			<span class="left back"></span>
+			<span class="title">活动建议</span>
+		</header>
+		<div id="content">
+			<div id="msg"></div>
+		</div>
+		<script>			
+			$("header .left").click(function(){
+				window.history.back();
+			})
+			$.ajax_({
+				method:"InterveneDetail",
+				data:{id:$.getRequest("id")},
+				success:function(d){
+					console.log(JSON.stringify(d.d));
+					var js = JSON.parse(d.d);
+					var html = '';
+						if(js.link !==''){
+							html+="<div class='contentlink' ><a href='detaillink.html?id="+js.link+"'>点击购买</a>";
+						}
+					$("#msg").html($.Base64Decode(js.msg) + html);
+				},
+				error:function(){ $.dialog({msg:"请检查网络"}) }
+			})
+		</script>
+	</body>
+</html>

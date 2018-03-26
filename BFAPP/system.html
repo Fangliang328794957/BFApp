@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css"/>
+    	<style type="text/css">
+    		
+    		.content{ position: absolute; top: 3rem; bottom:0; left: 0; right: 0; overflow: auto;}
+    		.content > div{border-top: 1px solid #f4f4f4; border-bottom: 1px solid #f4f4f4;background-color: #FFF; margin-top: 1rem;}
+    		.content > div hr{height: 1px; border:0;margin:0 0 0 1rem;background-color: #f4f4f4; clear: both;}
+    		.content > div > a,.content > div > span,.content > div > samp{height: 2.5rem; line-height: 2.5rem; display: block; padding-left: 1rem; text-decoration: none; color: #414141; }
+    		.content > div > a i{font-style: normal;float: right;padding-right: 1rem;}
+    		.content > div > a i:after{content: '\e62c';font-family: app;}
+    		
+    		.content > div > samp{margin: 0; text-align: center; font-family: "微软雅黑"; }
+    		.content > div > samp:hover,.content > div > a:hover{ background-color: #eaeaea; }
+    		
+    	</style>
+	</head>
+	<body ontouchstart>
+		<header>
+			<span class="title">系统设置</span>
+			<span class="left back"></span>
+		</header>
+		<div class="content">
+			<div>
+				<a href="updatePass.html" id="updatePass">修改密码<i></i></a>
+			</div>
+			<div>
+				<a id="noticelogin">检查更新<i></i></a><hr />
+				<a href="report_old.html">关于<i></i></a>
+			</div>
+			<div>
+				<samp>退出登录</samp>
+			</div>			
+		</div>
+		<script type="text/javascript">
+			//系统设置
+			$("header .left").click(function(){
+				location.href="setting.html";
+			});
+			//版本检查
+			$(".content #noticelogin").click(function(){
+				$.dialog({msg:"暂无更新"})
+			});
+			//点击退出登录
+			$(".content div samp").click(function(){
+				localStorage.removeItem("StudentBodyCompare");
+				localStorage.removeItem("report");
+				localStorage.removeItem("user");
+				localStorage.removeItem("uname");
+				localStorage.removeItem("pass");
+				location.href="index.html";
+			});
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>首页</title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body ontouchstart>
+		<div>
+			<div id="bg">
+				<span></span>
+				<p></p>
+			</div>
+			<div class="line">
+				<span class="item">
+					<i>出生年月</i>
+					<samp></samp>
+				</span>
+				<span class="item">
+					<i>出生体重</i>
+					<samp></samp>
+				</span>
+			</div>
+			<div id="height" class="line item">
+				<i><p>身高</p></i>
+				<samp></samp>
+				<u>厘米</u>
+				<a href="bodydetail.html">查看详细信息></a>
+			</div>
+			<div id="weight" class="line item">
+				<i><p>体重</p></i>
+				<samp></samp>
+				<u>千克</u>
+				<a href="bodydetail.html">查看详细信息></a>
+			</div>
+			<div id="bmi" class="line item">
+				<i><p>体指</p></i>
+				<samp></samp>
+				<u></u>
+				<a href="bodydetail.html#bmi">查看详细信息></a>
+			</div>
+			<div id="bust" class="line item">
+				<i><p>胸围</p></i>
+				<samp></samp>
+				<u>厘米</u>
+				<a href="bodydetail.html#bust">查看详细信息></a>
+			</div>
+			<div id="sitheight" class="line item">
+				<i><p>坐高</p></i>
+				<samp></samp>
+				<u>厘米</u>
+				<a href="bodydetail.html#sitheight">查看详细信息></a>
+			</div>
+			<div id="skinfold" class="line item">
+				<i><p>皮褶厚度</p></i>
+				<samp></samp>
+				<u>毫米</u>
+				<a href="bodydetail.html#skinfold">查看详细信息></a>
+			</div>
+			<div id="eye" class="line item">
+				<i><p>视力</p></i>
+				<samp></samp>
+				<a href="bodydetail.html#eye">查看详细信息></a>
+			</div>
+			<div id="vitalcapacity" class="line item">
+				<i><p>肺活量</p></i>
+				<samp></samp>
+				<u>毫升</u>
+				<a href="bodydetail.html#vitalcapacity">查看详细信息></a>
+			</div>
+			<div id="staticheart" class="line item">
+				<i><p>静态心率</p></i>
+				<samp></samp>
+				<u>次/分钟</u>
+				<a href="bodydetail.html#staticheart">查看详细信息></a>
+			</div>
+			<div id="bodyreport" class="line item">
+				<i><p>体能报告</p></i>
+				<a href="report.html">查看详细信息></a>
+			</div>
+			
+			<div id="father" class="container">
+				<div class="card">
+			    	<div class="front"><span>父亲信息卡</span></div>
+			    	<div class="back">
+			      		<span class="head"></span>
+			      		<span class="title">父亲信息卡</span>
+			      		<div class="left">
+			      			<span><i>出生年月</i><u></u></span>
+			      			<span><i>体重</i><u></u><samp>千克</samp></span>
+			      		</div>
+			      		<div class="right">
+			      			<span><i>身高</i><u></u><samp>厘米</samp></span>
+			      			<span><i>体指</i><u></u></span>
+			      		</div>
+			    	</div>
+			   </div>
+			</div>
+			
+			<div id="mother" class="container">
+			    <div class="card">
+			    	<div class="front"><span>母亲信息卡</span></div>
+			    	<div class="back">
+			      		<span class="head"></span>
+			      		<span class="title">母亲信息卡</span>
+			      		<div class="left">
+			      			<span><i>出生年月</i><u></u></span>
+			      			<span><i>体重</i><u></u><samp>千克</samp></span>
+			      		</div>
+			      		<div class="right">
+			      			<span><i>身高</i><u></u><samp>厘米</samp></span>
+			      			<span><i>体指</i><u></u></span>
+			      		</div>
+			        </div>
+			    </div>
+			</div>
+			<div id="hh"></div>
+		</div>
+		
+		<footer>
+			<span class="selected">我的</span>
+			<span>测试</span>
+			<span>商城互动</span>
+			<span>设置</span>
+		</footer>
+		<script src="js/foot.js"></script>
+		<script>
+			$(".card").click(function(){
+				$(this).toggleClass("flipped")
+			})
+			var stop;
+			$("body > div").scroll(function(e){
+				$("#hh").hide();
+				clearTimeout(stop);
+			    stop = setTimeout(function() {
+			        $("#hh").show();
+			    }, 250);
+			})
+			$(".item").click(function () {
+					$(".item").removeClass("hover")
+			    	$(this).addClass("hover");
+				}
+			);
+			$.setData = function(){
+				var js = JSON.parse(localStorage.getItem("user"));
+				$("#bg").prepend($("<img>").attr({id:"appbg","src": js.appbg==""?"img/head-bg.jpg": "http://files.yphtoy.com/headimg/"+js.appbg}))
+				$("#bg span").append($("<img>").attr({id:"head","src":js.head==""?"img/avatar.png":"http://files.yphtoy.com/headimg/"+js.head}))
+				$("#bg p").html('<i>'+js.name+'</i>'+js.gardenname)
+				$(".line span:first-child samp").html(js.birthday.replace(/\//g,'.'));
+				$(".line span:last-child samp").html(js.birthweight!=""?(js.birthweight/100+"<u>千克</u>"):"未知");
+				$("#weight samp").html(js.weight!=""?(js.weight/100).toFixed(1):"未知");
+				$("#height samp").html(js.height!=""?(js.height/100).toFixed(1):"未知");
+				$("#bmi samp").html(js.bmi!=""?js.bmi:"未知");
+				$("#vitalcapacity samp").html(js.vitalcapacity>0?js.vitalcapacity:"未知");
+				$("#sitheight samp").html(js.sitheight!=""?(js.sitheight/100).toFixed(1):"未知");
+				$("#bust samp").html(js.bust!=""?(js.bust/100).toFixed(1):"未知");
+				$("#skinfold samp").html(js.skinfold!=""?(js.skinfold/100).toFixed(1):"未知");
+				$("#staticheart samp").html(js.staticheart!=""?(js.staticheart/100).toFixed(1):"未知");
+				var eye="未知";
+				if(js.eye_left!="" || js.eye_right!=""){
+					eye="";
+					if(js.eye_left!="")
+						eye=js.eye_left+"<u>(左)</u> "
+					if(js.eye_right!="")
+						eye=js.eye_right+"<u>(右)</u> "
+				}
+				$("#eye samp").html(eye);
+				
+				$("#father .front").prepend($("<img>").attr("src",js.father_photo==""?"img/father.jpg":"http://files.yphtoy.com/headimg/"+js.father_photo));
+				$("#father .back .head").append($("<img>").attr("src",js.father_photo==""?"img/father.jpg":"http://files.yphtoy.com/headimg/"+js.father_photo));
+				$("#father .left span:first-child u").html(js.father_birthday!=""?js.father_birthday:"未知")
+				$("#father .left span:last-child u").html(js.father_weight!=""?(js.father_weight/100):"未知")
+				$("#father .right span:first-child u").html(js.father_height!=""?(js.father_height/100):"未知")
+				$("#father .right span:last-child u").html(js.father_bmi!=""?js.father_bmi:"未知")
+				
+				$("#mother .front").prepend($("<img>").attr("src",js.mother_photo==""?"img/mother.jpg":"http://files.yphtoy.com/headimg/"+js.mother_photo));
+				$("#mother .back .head").prepend($("<img>").attr("src",js.mother_photo==""?"img/mother.jpg":"http://files.yphtoy.com/headimg/"+js.mother_photo));
+				$("#mother .left span:first-child u").html(js.mother_birthday!=""?js.mother_birthday:"未知")
+				$("#mother .left span:last-child u").html(js.mother_weight!=""?(js.mother_weight/100):"未知")
+				$("#mother .right span:first-child u").html(js.mother_height!=""?(js.mother_height/100):"未知")
+				$("#mother .right span:last-child u").html(js.mother_bmi!=""?js.mother_bmi:"未知")
+			}
+			//第一次获取完内容后，可以存起来，然后在个人设置页，有修改后，同步修改localStorage
+			//登录完成后，带参数进来，这时才重新获取一遍，其他时候进来，没有参数，就从localStorage中拿
+			if(window.location.search!="")
+				$.ajax_({
+					method:"GetStudent",
+					data:{},
+					success:function(d){
+//						console.log(d.d)
+						localStorage.setItem("user", JSON.stringify($.extend(JSON.parse(localStorage.getItem("user")), JSON.parse(d.d))));
+						$.setData();
+					}
+				})
+			else
+				$.setData();
+		</script>
+	</body>
+</html>

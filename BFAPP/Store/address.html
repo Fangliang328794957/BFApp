@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<title>地址管理</title>
+	</head>
+	<style>
+		@font-face { font-family: "app"; src: url('../css/iconfont.ttf') format('truetype'); }
+		.app { font-family: "app" !important; font-style: normal; -webkit-font-smoothing: antialiased; }
+		*{
+			margin: 0;padding: 0;
+		}
+		header{
+			position: relative;border-bottom: 0.1rem solid #E5E5E5;
+			height: 3rem;width: 100%;
+		}
+		header span{
+			display: block;height: 100%;width: 100%;text-align: center;line-height: 3rem;color: #515151;font-size: 1.2rem;
+		}
+		.back{
+			position: absolute;top:0;left:0;height: 3rem;width: 3rem;font-size: 1rem;text-align: center;line-height: 3rem;font-family: "app";
+		}
+		.title{
+			color: #515151;
+		}
+		.main_con{
+			width: 94vw;height: auto;padding: 3vw;position: absolute;top:3rem;left:0;bottom:0rem;overflow: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+		.main_con_f{
+			width: 100%;height: 5rem;border-bottom: 0.1rem solid #e5e5e5;position: relative;padding: 0.5rem 0;
+		}
+		.main_con_f h3{
+			font-weight: 600;color: #676767;
+		}
+		.main_con_f span{
+			color: #C0C0C0;font-size: 1rem;display: block;width: 80%;margin: 0.2rem 0;
+		}
+		.main_con_f b{
+			font-family: "app";font-size: 2rem;color: #676767;width: auto;height: 100%;display: block;cursor: pointer;
+			position: absolute;top:0;bottom: 0;margin-bottom: auto;margin-top: auto;right: 0.2rem;line-height: 6rem;
+		}
+		.new_address{
+			position: absolute;bottom:0;left:0;height: 3rem;width: 100%;line-height: 3rem;text-align: center;
+			color: #787878;cursor: pointer;border-top:0.1rem solid #E9E9E9
+		}
+	</style>
+	<body ontouchstart>
+		<header>
+			<div class="back mui-action-back">&#xe62d;</div>
+			<span class="title">地址管理</span>
+		</header>
+		<div class="main_con">
+			<div class="main_con_f">
+				<h3>昵称(非真实名字)</h3>
+				<span>浙江省杭州市滨江区聚源路12号茂源大厦1号楼3楼</span>
+				<b class="di">&#xe62a;</b>
+			</div>
+			<div class="main_con_f">
+				<h3>昵称(非真实名字)</h3>
+				<span>浙江省杭州市滨江区聚源路12号茂源大厦1号楼3楼</span>
+				<b class="di">&#xe62a;</b>
+			</div>
+			<!--新建地址-->
+			<div class="new_address">
+				+ 新建地址
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".main_con").delegate(".di","click",function(){
+				var that=this;
+				mui.openWindow({
+					url:"edit_address.html",
+					id:"edit_address",
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+			//新建地址
+			$(".new_address").click(function(){
+				mui.openWindow({
+					url:"edit_address.html",
+					id:"edit_address",
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+		})
+	</script>
+</html>

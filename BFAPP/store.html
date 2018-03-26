@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>幼儿互动</title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css"/>
+    	<link rel="stylesheet" href="css/store.css" />
+	</head>
+	<style>
+		footer{position: absolute; bottom: 0; height: 3.5rem; box-sizing: border-box; color:#666;display: block;left: 0; right: 0; background-color: #F6F6F6;}
+		footer span{ display: block; float: left; width: 25%; height: 3.5rem; text-align: center; font-size: .8rem;}
+		footer span.selected{color: #15B175;}
+		footer span:before{ font-family: app; display: block; margin-top: .3rem; font-size: 1.5rem;}
+		footer span:nth-child(1):before{ content: '\e699'; }  /*我的*/
+		footer span:nth-child(2):before{ content: '\e64d'; }  
+		footer span:nth-child(3):before{ content: '\e652'; }  
+		footer span:nth-child(4):before{ content: '\e624'; }
+		.left{
+			position: absolute;top:0;left:0;width: 3rem;height: 3rem;
+		}
+		.left:before{
+			font-family: app;content: '\e62d';text-align: center;line-height: 3rem;color: #fff;
+		}
+		.list .sec{
+			color: #333;font-weight: 800;
+		}
+	</style>
+	<body ontouchstart>
+		<header>
+			<span class="mui-action-back left"></span>
+			<span class="title">幼儿互动</span>
+		</header>
+		<div class="list">
+			<span index="par_home">家长圈</span>
+			<span class="sec" index="now">积分商城</span>
+			<span index="try">试用</span>
+			<span index="topic">幼儿话题</span>
+		</div>
+		<div class="mid_con">
+			<!--轮播图-->
+			<div class="mui-slider slider">
+			  <div class="mui-slider-group mui-slider-loop">
+			    <!--支持循环，需要重复图片节点-->
+			    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/p3.jpg" /></a></div>
+			    
+			    <div class="mui-slider-item"><a href="#"><img src="img/p1.jpg" /></a></div>
+			    <div class="mui-slider-item"><a href="#"><img src="img/p2.jpg" /></a></div>
+			    <div class="mui-slider-item"><a href="#"><img src="img/p3.jpg" /></a></div>
+			    <!--支持循环，需要重复图片节点-->
+			    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/p1.jpg" /></a></div>
+			  </div>
+			</div>
+			
+			<span class="good_pro">精选好货</span>
+			
+			<div class="mid_conSon">
+				<img class="mid_conSon_img" src="img/p4.jpg"/>
+				<div class="mid_conSon_text">
+					<span class="main_title">商品标题,商品标题</span><br>
+					<span class="sub_title">商品副标题，属</span><br>
+					<span class="new_price">549积分</span><br>
+					<s class="old_price">￥20.00</s>
+					<div class="clicks">点击兑换</div>
+				</div>
+			</div>
+			<div class="mid_conSon">
+				<img class="mid_conSon_img" src="img/p4.jpg"/>
+				<div class="mid_conSon_text">
+					<span class="main_title">商品标题,商品标题</span><br>
+					<span class="sub_title">商品副标题，属性</span><br>
+					<span class="new_price">549积分+￥56</span><br>
+					<s class="old_price">￥20.00</s>
+					<div class="clicks">点击兑换</div>
+				</div>
+			</div>
+			
+			<span class="your_love">猜你喜欢</span>
+			<div class="your_love_f">
+				<div class="your_love_s">
+					<img src="img/father.jpg" class="your_love_img" alt="" />
+					<span>商品标题，字数...</span><br>
+					<span>549积分 + ￥56</span>
+					<s>￥80.00</s>
+				</div>
+				<div class="your_love_s">
+					<img src="img/father.jpg" class="your_love_img" alt="" />
+					<span>商品标题，字数...</span><br>
+					<span>549积分 + ￥56</span>
+					<s>￥80.00</s>
+				</div>
+				<div class="your_love_s">
+					<img src="img/father.jpg" class="your_love_img" alt="" />
+					<span class="love_main_title">商品标题字数...</span><br>
+					<span style="padding: 0.5rem 0;color: #FE0E0E;font-size: 1rem;">549积分 + ￥56</span><br>
+					<s>￥80.00</s>
+				</div>
+			</div>
+			<h4 class="h4">加载更多...</h4>
+		</div>
+		<footer>
+			<span class="selected" index="index">商城首页</span>
+			<span index="order">订单</span>
+			<span index="car">购物车</span>
+			<span index="own">个人</span>
+		</footer>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$("footer").delegate("footer span","click",function(){
+				var that=this;
+				$(that).addClass("selected").siblings().removeClass("selected");
+				var index=$(that).attr("index")
+				if(index=="index"){
+					console.log("index")
+				}else if(index=="order"){
+					mui.openWindow({
+						url:"Store/order.html",
+						id:"own",
+						waiting:{
+							autoShow:false,
+						}
+					})
+				}else if(index=="car"){
+					mui.openWindow({
+						url:"Store/car.html",
+						id:"own",
+						waiting:{
+							autoShow:false,
+						}
+					})
+				}else if(index=="own"){
+					mui.openWindow({
+						url:"Store/own.html",
+						id:"own",
+						waiting:{
+							autoShow:false,
+						}
+					})
+				}
+				setTimeout(function(){
+					$("footer span").eq(0).addClass("selected").siblings().removeClass("selected")
+				},1000)
+			})
+			//list
+			$(".list").delegate(".list span","click",function(){
+				var index=$(this).attr('index');
+				$(this).addClass("sec").siblings().removeClass("sec");
+				var that=this;
+				
+				if(index=="topic"){    //幼儿话题
+					mui.openWindow({
+						url:"topic.html",
+						id:"topic",
+						waiting:{
+							autoShow:false,
+						}
+					})
+				}else if(index=="par_home"){   //家长圈
+					console.log("par_home")
+				}else if(index=="try"){   //试用
+					console.log("try")
+				}
+				setTimeout(function(){
+					$(".list span").eq(1).addClass("sec").siblings().removeClass("sec");
+				},1000)
+			})
+			$("body").delegate(".your_love_s","click",function(){
+				mui.openWindow({
+					url:"Store/goods.html",
+					id:"goods",
+					waiting:{
+						autoShow:false,
+					}
+				})
+			}).delegate(".mid_conSon","click",function(){
+				mui.openWindow({
+					url:"Store/goods.html",
+					id:"goods",
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+		})
+	</script>
+</html>

@@ -1,0 +1,43 @@
+.content{position: absolute; top: 3rem; bottom: 0rem; left: 0; right: 0; overflow-x: hidden;  overflow-y: auto;z-index: 1; -webkit-overflow-scrolling: touch;}
+
+#compare{ background-image:url(../css/bai.svg), -webkit-linear-gradient(90deg, rgba(255,255,255,.1), rgba(0,0,0,0) 25%, rgba(255,255,255,.3)); -webkit-transition: all 500ms; background-size: cover; background-color: #0fba75; padding:10vw 0; }
+#contrast { width: 50vw; height: 40vw; margin: 0 auto; -webkit-perspective: 500vw; }
+#contrast div { width: 100%; height: 100%; -webkit-transform-style: preserve-3d; margin: 0 auto;-webkit-transition: -webkit-transform 500ms; }
+#contrast div span { display: block; position: absolute; border-radius: .5rem;box-shadow: 0px 5px 5px rgba(0,0,0,.1); color: #FFF; font-size: 1.3rem; width: 50vw; height: 40vw; text-align: center; left: 0vw; top: 0vw; -webkit-backface-visibility: hidden; }
+#contrast div span:before{font-family: app; display: block;font-size: 3rem; padding-top: 3vw;}
+#contrast div span:after{content: '-体质健康从娃娃抓起-'; display: block;font-size: .8rem; padding-top: 2vw; font-weight:100;}
+ 			
+#contrast div span:nth-child(1){background-color:#0fba75;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(2){background-color:#7e9ef0;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(3){background-color:#f0a097;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(4){background-color:#ff8cc5;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(5){background-color:#ab6eff;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(1):before{content: '\e63b';}
+#contrast div span:nth-child(2):before{content: '\e63c';}
+#contrast div span:nth-child(3):before{content: '\e63a';}
+#contrast div span:nth-child(4):before{content: '\e63d';}
+#contrast div span:nth-child(5):before{content: '\e63e';}
+
+.item{ text-align: center; font-size: .9rem; font-family: "微软雅黑"; padding: 20px 0px; }
+.item i{font-style: normal;}
+.item > span{ display: block; padding: 1rem 0 0 0;}
+.item > span u{ text-decoration: none; }
+.item > p{ margin: 0.2rem; font-size: 2rem; color: #15D389; }
+.item .line { position: relative; height: 1rem; width: 70vw; margin: 1rem auto 0 auto;}
+.item .line *{ position: absolute;line-height: 1.3rem;}
+.item .line .green {height: 1px; top: 2px; background-color: #15D389; }
+.item .line .green:before { content: ''; display: block; width: 10px; height: 10px; border-radius: 50%; background-color: #15D389; position: absolute; right: -5px; top: -5px; }
+.item .line .gray {height: 1px; top: 2px; width: 100%; background-color: #BFBFBF; right: 0;}
+.item .line .left { display: block; width: 3rem; text-align: center; color: #666666; left: -1.5rem;}
+.item .line .left:before { content: ''; display: block; margin: 0 auto; width: 4px; height: 4px; border-radius: 50%; background-color: #15D389;}
+.item .line .right {display: block; width: 3rem; text-align: center; color: #666666; right: -1.5rem;}
+.item .line .right:before { content: ''; display: block; margin: 0 auto; width: 4px; height: 4px; border-radius: 50%; background-color: #BFBFBF;}
+.item .line .center:before {content: ''; display: block; margin: 0 auto; width: 4px; height: 4px; border-radius: 50%; background-color: #BFBFBF;}
+.item .line .center.g:before {background-color: #15D389;}
+.item .line .user {}
+.item .mark { display: block; clear: both; padding:1rem 0; height: 2rem;}
+.item .mark span{ width: 28vw; display: inline-block; color: #666666; position: relative; }
+.item .mark span:after{content: ''; display: block; top: .2rem; right: 0; height: 3rem; width: 1px; background-color: #BFBFBF; position: absolute;}
+.item .mark span:last-child:after{content: none;}
+.item .mark span u{ display: block;font-size: 1.2rem; line-height: 3rem; text-decoration: none; color: #414141;}
+.item p u{font-size: .8rem;text-decoration: none; color: #666666; margin-right: .5rem;}

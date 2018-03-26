@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>育儿话题</title>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<!--topic.css -->
+    	<link rel="stylesheet" href="css/topic.css" />
+	</head>
+	<style>
+		.mui-slider
+			{
+			    position: fixed;
+			    top:3rem;
+			    left:0;
+			    z-index: 1;
+			    overflow: hidden;
+			    width: 100%;
+			    height: auto;
+			    object-fit: cover;
+			}
+			.mui-slider .mui-slider-group
+			{
+			    font-size: 0;
+			    position: relative;
+			    -webkit-transition: all 0s linear;
+			            transition: all 0s linear;
+			    white-space: nowrap;
+			}
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-group .mui-slider-item
+			{
+			    border-top: 1px solid #c8c7cc;
+			    border-bottom: 1px solid #c8c7cc;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item
+			{
+			    font-size: 14px;
+			    position: relative;
+			    display: inline-block;
+			    width: 100%;
+			    height: 100%;
+			    vertical-align: top;
+			    white-space: normal;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item
+			{
+			    font-size: 14px;
+			    position: relative;
+			    display: inline-block;
+			
+			    width: 100%;
+			    height: 100%;
+			
+			    vertical-align: top;
+			    white-space: normal;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item > a:not(.mui-control-item)
+			{
+				width: 100vw;
+				height: 50vw;
+			    line-height: 0;
+			    position: relative;
+			    display: block;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item img
+			{
+			    width: 100vw;height: 50vw;
+			    object-fit: cover;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item .mui-table-view:before, .mui-slider .mui-slider-group .mui-slider-item .mui-table-view:after
+			{
+			    height: 0;
+			}
+			.mui-slider .mui-slider-group.mui-slider-loop
+			{
+			    -webkit-transform: translate(-100%, 0px);
+			            transform: translate(-100%, 0px);
+			}
+			
+			.mui-slider-title
+			{
+			    line-height: 30px;
+			
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			
+			    width: 100%;
+			    height: 30px;
+			    margin: 0;
+			
+			    text-align: left;
+			    text-indent: 12px;
+			
+			    opacity: .8;
+			    background-color: #000;
+			}
+			
+			.mui-slider-indicator
+			{
+			    position: absolute;
+			    bottom: 8px;
+			    width: 100%;
+			    text-align: center;
+			    background: none;
+			}
+			.back{
+				position: absolute;top:0;left:0;height: 3rem;width: 3rem;font-size: 1rem;text-align: center;line-height: 3rem;font-family: "app";
+				z-index: 999;color: #fff;
+			}
+	</style>
+	<body>
+		<header>
+			<div class="back mui-action-back">&#xe62d;</div>
+			<span class="title">育儿话题</span>
+		</header>
+		<!--轮播图-->
+		<div class="mui-slider slider">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/p3.jpg" /></a></div>
+		    
+		    <div class="mui-slider-item"><a href="#"><img src="img/p1.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/p2.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/p3.jpg" /></a></div>
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/p1.jpg" /></a></div>
+		  </div>
+		</div>
+		
+		<div class="topic_list">
+			<span class="jx">精选</span>
+			<span class="zl">专栏</span>
+			<span class="sq">社区</span>
+		</div>
+		<div class="infos infos_jx" id="infos">
+			<!--精选-->
+			<div class="jx_info" id="jx_info">
+				<!--后台取出的数据插入到这里-->
+			</div>
+		</div>	
+			
+		<div class="infos_zl">
+			<!--专栏-->
+			<div class="zl_info" id="zl_info">
+				<!--专栏主题-->
+			</div>
+		</div>
+		
+		<div class="infos_sq">
+			<!--社区-->
+			<div class="sq_info" id="sq_info">
+				<div class="sq_infoTop">
+					<div class="sq_infoTopSon" icons="0301">
+						<span class="category_logo"></span><br>
+						<span class="category_title">育儿干货</span>
+					</div>
+					<div class="sq_infoTopSon" icons="0308">
+						<span class="category_logo"></span><br>
+						<span class="category_title">宝贝护理</span>
+					</div>
+					<div class="sq_infoTopSon" icons="0309">
+						<span class="category_logo"></span><br>
+						<span class="category_title">福利专区</span>
+					</div>
+				</div>
+			<!--底部分类-->
+			<div class="sq_infoBot">
+				
+			</div>
+		</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			//页面加载完通过ajax取数据
+			$.ajax_({
+				method:"AppArticleList",
+				data:{"currentpage":1,"pagesize":10,"type":"01","like":false,"by":0},
+				success:function(e){
+//					console.log(e.d)
+					var data=JSON.parse(e.d);
+					var lists=data.list;
+					lists.map(function(index){
+						if(index.img==""){
+							$(".jx_infoImg").css("width",'0%');
+							$(".jx_InfoText").css("width",'100%')
+						}else{
+							$(".jx_infoImg").css("width",'30%')
+							$(".jx_InfoText").css("width",'65%')
+						}
+						//如果不是http开头的，那么需要在前面加上http://files.yphtoy.com
+						var f=index.img.substring(0,1);
+						if(f=="/"){
+							index.img="http://files.yphtoy.com"+index.img
+						}else{
+							index.img=index.img?index.img:"img/head-bg.jpg";
+						}
+						$("<div>").addClass("jx_infoSon").html(`
+							<img src="${index.img}" class="jx_infoImg" laud="${index.laud}" aparticle_id="${index.id}" aparticle_comment="${index.comment}" aparticle_commend="${index.commend}" aparticle_time="${index.intime}"/>
+							<div class="jx_InfoText" style="position: relative;">
+								<span class="jx_InfoText_title">${$.Base64Decode(index.title)}</span>
+								<div class="jx_InfoTextBot">
+									<span>${index.num}</span>
+									<span style="margin:0 0.5rem"> ${index.comment} </span>
+									<span class="laud"> ${index.laud}</span>
+								</div>
+							</div>
+						`).appendTo($(".jx_info"));
+					})
+					//下拉刷新  页面内容加载完
+//					mui.init({
+//						pullRefresh :{
+//						 	container:"#infos",
+//							up : {
+//						      height:50,
+//						      auto:false,
+//						      contentrefresh : "正在加载...",
+//						      contentnomore:'没有更多数据了',
+//						      callback :function(){
+//						      	var that=this
+//								  	setTimeout(function(){
+//								     	that.endPullupToRefresh(false);
+//								    },2000)
+//								  }
+//						    }
+//						}
+//					})
+				}
+		});
+			//点赞
+			var laud;
+			$(".jx_info").delegate(".laud","touchend",function(){
+				var that=this;
+				$.ajax_({
+					method:"AppArticleLaud",
+					data:{"aparticle_id":$(that).parent().parent().siblings(".jx_infoImg").attr("aparticle_id")},
+					success:function(e){
+						if(e.d==1){
+							$.dialog({"msg":"点赞成功"})
+							var num=parseInt($(that).text())+1;
+							$(that).css({"color":"#19d58b"}).html(num)
+						}else{
+							$.dialog({"msg":"取消成功"})
+							var num=parseInt($(that).text())-1;
+							$(that).css({"color":"gray"}).html(num)
+						}
+					}
+				})
+			})
+			$(".jx").click(function(){
+				$(this).css("border-bottom","1px solid #19d58b").siblings().css("border-bottom","1px solid #F2F2F2");
+				$(".infos_jx").css("display","block")
+				$(".infos_zl").css("display","none");
+				$(".infos_sq").css("display","none");
+			})
+			//专栏
+			$(".zl").click(function(){
+				$(this).css("border-bottom","1px solid #19d58b").siblings().css("border-bottom","1px solid #F2F2F2");
+				$(".infos_jx").css("display","none")
+				$(".infos_zl").css("display","block");
+				$(".infos_sq").css("display","none");
+				//取数据
+				$.ajax_({
+					method:"AppArticleList",
+					data:{"currentpage":1,"pagesize":10,"type":"02","like":true,"by":0},
+					success:function(e){
+						console.log(e.d)
+						var data=JSON.parse(e.d);
+						if(data.count==0){
+							if($(".error_info").length==0){
+								$("<div>").addClass("error_info").html(`
+									没有更新数据QAQ
+								`).appendTo($(".zl_info"))
+							}
+						}else{
+							if(!$(".zl_infoSon").length==0){
+								return
+							}
+							var lists=data.list;
+							lists.map(function(index){
+								if(index.img==""){
+									index.img="img/head-bg.jpg"
+								}
+								var f=index.img.substring(0,1);
+								if(f=="/"){
+									index.img="http://files.yphtoy.com"+index.img
+								}
+								$("<div>").addClass("zl_infoSon").html(`
+									<span memo="${index.memo}">【专栏主题】${$.Base64Decode(index.title)}</span>
+									<img src="${index.img}" class="zl_infoSonImg" alt="" />
+									<h6>${index.intime.substr(5,9).replace(/\//,"-")} 发布</h6>
+								`).appendTo($(".zl_info"));
+							})
+						}
+					}
+				});
+			})
+			//社区
+			$(".sq").click(function(){
+				$(this).css("border-bottom","1px solid #19d58b").siblings().css("border-bottom","1px solid #F2F2F2");
+				$(".infos_jx").css("display","none")
+				$(".infos_zl").css("display","none");
+				$(".infos_sq").css("display","block");
+				//取社区数据
+				$.ajax_({
+					method:"AppArticleList",
+					data:{"currentpage":1,"pagesize":10,"type":"0301","like":true,"by":0},
+					success:function(e){
+						var data=JSON.parse(e.d);
+//						console.log(JSON.stringify(e.d))  //暂时没有拿回数据
+						if(!$(".sq_infoBotSon_").length==0){
+							return
+						}
+						if(data.count==0){
+							if($(".error_info1").length==0){
+								//如果从后台拿不到数据，则显示默认数据
+								$("<div>").addClass("sq_infoBotSon_").html(`
+									<img class="jx_infoImg_" src="img/head-bg.jpg"/>
+									<div class="jx_InfoText" style="position: relative;">
+										<span class="jx_InfoText_title_">孩子玩谁长不长高是次要，最重要的是Test...(下)</span>
+										<div class="jx_InfoTextBot">
+											<span>111</span>
+											<span style="margin:0 0.5rem"> 222 </span>
+											<span class="laud"> 333</span>
+										</div>
+									</div>
+								`).appendTo($(".sq_info"));
+							}
+						}else{
+							var lists=data.list;
+							lists.map(function(index){
+								if(index.img==''){
+									$("<div>").addClass("sq_infoBotSon_").html(`
+										<img class="jx_infoImg_" src="img/head-bg.jpg"  laud="${index.laud}" aparticle_id="${index.id}" aparticle_comment="${index.comment}" aparticle_commend="${index.commend}" aparticle_time="${index.intime}"/>
+										<div class="jx_InfoText" style="position: relative;">
+											<span class="jx_InfoText_title_">孩子玩谁长不长高是次要，最重要的是。。。(下)</span>
+											<div class="jx_InfoTextBot">
+												<span>${index.num}</span>
+												<span style="margin:0 0.5rem"> ${index.comment} </span>
+												<span class="laud"> ${index.laud}</span>
+											</div>
+										</div>
+									`).appendTo($(".sq_info"));
+								}else{
+									var f=index.img.substring(0,1);
+									if(f=="/"){
+										index.img="http://files.yphtoy.com"+index.img
+									}
+									$("<div>").addClass("sq_infoBotSon_").html(`
+										<img class="jx_infoImg_" src="${index.img}"  laud="${index.laud}" aparticle_id="${index.id}" aparticle_comment="${index.comment}" aparticle_commend="${index.commend}" aparticle_time="${index.intime}"/>
+										<div class="jx_InfoText" style="position: relative;">
+											<span class="jx_InfoText_title_">${$.Base64Decode(index.title)}</span>
+											<div class="jx_InfoTextBot">
+												<span>${index.num}</span>
+												<span style="margin:0 0.5rem"> ${index.comment} </span>
+												<span class="laud"> ${index.laud}</span>
+											</div>
+										</div>
+									`).appendTo($(".sq_info"));
+								}
+							})
+							
+						}
+						
+					}
+				});
+			})
+			//点击事件
+			$("body").delegate(".jx_InfoText_title","click",function(){
+				var that=this;
+				mui.openWindow({   //运行这个方法需要在mainifest.json中添加一个控件
+									/*步骤   打开manifest.json-》模块权限配置 添加NativeUI 原生*/
+					url:'detailPage.html',
+					id:'info',
+					extras:{
+						aparticle_id:$(that).parent().siblings(".jx_infoImg").attr("aparticle_id"),   //文章id
+						aparticle_time:$(that).parent().siblings(".jx_infoImg").attr("aparticle_time"),   //时间
+						aparticle_comment:$(that).parent().siblings(".jx_infoImg").attr("aparticle_comment"),     //评论数量
+						aparticle_commend:$(that).parent().siblings(".jx_infoImg").attr("aparticle_commend"),     //点赞数
+						aparticle_laud:$(that).parent().siblings(".jx_infoImg").attr("laud")
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+			}).delegate(".zl_infoSon","click",function(){
+				var that=this
+				mui.openWindow({
+					url:"category_zl.html",   //专栏的分类页
+					id:"category_zl",
+					extras:{
+						category_zl_id:$(that).children("span").attr("memo")    //分类的id  0201或者0202，或者更多
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+			}).delegate(".jx_infoImg","click",function(){
+				var that=this;
+				mui.openWindow({   //运行这个方法需要在mainifest.json中添加一个控件
+									/*步骤   打开manifest.json-》模块权限配置 添加NativeUI 原生*/
+					url:'detailPage.html',
+					id:'info',
+					extras:{
+						aparticle_id:$(that).attr("aparticle_id"),   //文章id
+						aparticle_time:$(that).attr("aparticle_time"),   //时间
+						aparticle_comment:$(that).attr("aparticle_comment"),     //评论数量
+						aparticle_commend:$(that).attr("aparticle_commend"),     //点赞数
+						aparticle_laud:$(that).attr("laud")
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+			}).delegate(".sq_infoBotSon_","click",function(){
+				var that=this;
+				mui.openWindow({   //运行这个方法需要在mainifest.json中添加一个控件
+									/*步骤   打开manifest.json-》模块权限配置 添加NativeUI 原生*/
+					url:'detailPage.html',
+					id:'info',
+					extras:{
+						aparticle_id:$(that).children(".jx_infoImg_").attr("aparticle_id"),   //文章id
+						aparticle_time:$(that).children(".jx_infoImg_").attr("aparticle_time"),   //时间
+						aparticle_comment:$(that).children(".jx_infoImg_").attr("aparticle_comment"),     //评论数量
+						aparticle_commend:$(that).children(".jx_infoImg_").attr("aparticle_commend"),     //点赞数
+						aparticle_laud:$(that).children(".jx_infoImg_").attr("laud")
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+			}).delegate(".jx_InfoText_title_","click",function(){
+				var that=this;
+				mui.openWindow({   //运行这个方法需要在mainifest.json中添加一个控件
+									/*步骤   打开manifest.json-》模块权限配置 添加NativeUI 原生*/
+					url:'detailPage.html',
+					id:'info',
+					extras:{
+						aparticle_id:$(that).parent().siblings(".jx_infoImg").attr("aparticle_id"),   //文章id
+						aparticle_time:$(that).parent().siblings(".jx_infoImg").attr("aparticle_time"),   //时间
+						aparticle_comment:$(that).parent().siblings(".jx_infoImg").attr("aparticle_comment"),     //评论数量
+						aparticle_commend:$(that).parent().siblings(".jx_infoImg").attr("aparticle_commend"),     //点赞数
+						aparticle_laud:$(that).parent().siblings(".jx_infoImg").attr("laud")
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+			$('body').delegate(".jx_infoSon","click",function(){
+				var that=this;
+				mui.openWindow({   //运行这个方法需要在mainifest.json中添加一个控件
+									/*步骤   打开manifest.json-》模块权限配置 添加NativeUI 原生*/
+					url:'detailPage.html',
+					id:'info',
+					extras:{
+						aparticle_id:$(that).children(".jx_infoImg").attr("aparticle_id"),   //文章id
+						aparticle_time:$(that).children(".jx_infoImg").attr("aparticle_time"),   //时间
+						aparticle_comment:$(that).children(".jx_infoImg").attr("aparticle_comment"),     //评论数量
+						aparticle_commend:$(that).children(".jx_infoImg").attr("aparticle_commend"),     //点赞数
+						aparticle_laud:$(that).children(".jx_infoImg").attr("laud")
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+				
+			})
+			
+			//社区分类列表
+			$(".sq_infoTop").delegate(".sq_infoTopSon","click",function(e){
+				var that=this;
+				mui.openWindow({
+					url:"category_sq.html",   //分类的列表页
+					id:"category_sq",
+					extras:{
+						category_sq_id:$(that).attr("icons"),  //分类id
+						category_sq_title:$(that).children().text()
+					},
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+			//图片自动轮播
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:5000
+			});
+		})
+	</script>
+</html>

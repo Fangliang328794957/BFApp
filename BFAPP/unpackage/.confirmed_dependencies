@@ -1,0 +1,401 @@
+{
+	"index.html": {
+		"resources": [
+			"img/logo-shadow.png",
+			"img/login.jpg",
+			"js/zepto.min.js",
+			"main.html",
+			"css/iconfont.ttf",
+			"js/public.js",
+			"css/public.css"
+		],
+		"refer": [
+			"main.html",
+			"forgetPass.html",
+			"detaillink.html",
+			"report.html"
+		]
+	},
+	"main.html": {
+		"resources": [
+			"css/iconfont.ttf",
+			"img/head-bg.jpg",
+			"img/avatar.png",
+			"img/mother.png",
+			"js/zepto.min.js",
+			"img/father.png",
+			"img/mother.jpg",
+			"img/father.jpg",
+			"js/zepto.touch.js",
+			"setting.html",
+			"js/foot.js",
+			"css/public.css",
+			"css/foot.css",
+			"css/main.css",
+			"js/public.js",
+			"report.html",
+			"bodydetail.html",
+			"test.html",
+			"topic.html"
+		],
+		"refer": [
+			"setting.html",
+			"report.html",
+			"bodydetail.html",
+			"test.html",
+			"topic.html",
+			"main.html",
+			"store.html"
+		]
+	},
+	"setting.html": {
+		"resources": [
+			"js/zepto.touch.js",
+			"js/zepto.min.js",
+			"js/foot.js",
+			"css/public.css",
+			"css/foot.css",
+			"main.html",
+			"css/head.css",
+			"system.html",
+			"img/avatar.png",
+			"img/head-bg.jpg",
+			"img/mother.jpg",
+			"img/father.jpg",
+			"test.html",
+			"js/public.js",
+			"report.html",
+			"css/iconfont.ttf"
+		],
+		"refer": [
+			"main.html",
+			"system.html",
+			"test.html",
+			"report.html",
+			"topic.html",
+			"store.html"
+		]
+	},
+	"system.html": {
+		"resources": [
+			"js/zepto.touch.js",
+			"js/zepto.min.js",
+			"setting.html",
+			"index.html",
+			"report_old.html",
+			"css/iconfont.ttf",
+			"js/public.js",
+			"css/head.css",
+			"css/public.css",
+			"css/foot.css",
+			"report.html"
+		],
+		"refer": [
+			"setting.html",
+			"index.html",
+			"report_old.html",
+			"report.html",
+			"info.html",
+			"updatePass.html"
+		]
+	},
+	"test.html": {
+		"resources": [
+			"img/p1.jpg",
+			"img/p5.jpg",
+			"img/p9.jpg",
+			"img/p7.jpg",
+			"img/p4.jpg",
+			"img/p8.jpg",
+			"setting.html",
+			"img/p11.jpg",
+			"img/p6.jpg",
+			"img/p2.jpg",
+			"img/p3.jpg",
+			"main.html",
+			"css/head.css",
+			"report.html",
+			"testdetail.html",
+			"js/foot.js",
+			"css/public.css",
+			"css/iconfont.ttf",
+			"js/zepto.min.js",
+			"css/foot.css",
+			"topic.html"
+		],
+		"refer": [
+			"setting.html",
+			"main.html",
+			"report.html",
+			"testdetail.html",
+			"topic.html",
+			"store.html"
+		]
+	},
+	"report.html": {
+		"resources": [
+			"js/zepto.touch.js",
+			"js/zepto.min.js",
+			"js/public.js",
+			"js/foot.js",
+			"css/head.css",
+			"css/public.css",
+			"css/foot.css",
+			"test.html",
+			"css/iconfont.ttf",
+			"setting.html",
+			"js/mui.min.js",
+			"js/hammer.min.js",
+			"main.html",
+			"js/touch-0.2.14.min.js",
+			"intervene.html",
+			"css/report.css",
+			"js/report.js",
+			"system.html"
+		],
+		"refer": [
+			"test.html",
+			"setting.html",
+			"main.html",
+			"intervene.html",
+			"system.html",
+			"topic.html"
+		]
+	},
+	"bodydetail.html": {
+		"resources": [
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/public.css",
+			"css/foot.css",
+			"css/head.css",
+			"css/bai.svg",
+			"js/hammer.min.js",
+			"css/iconfont.ttf",
+			"main.html",
+			"css/bodydetail.css",
+			"js/bodydetail.js"
+		],
+		"refer": [
+			"main.html"
+		]
+	},
+	"testdetail.html": {
+		"resources": [
+			"css/iconfont.ttf",
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/head.css",
+			"css/public.css",
+			"css/bai.svg",
+			"css/testdetail.css",
+			"js/testdetail.js",
+			"js/hammer.min.js",
+			"test.html",
+			"intervene.html"
+		],
+		"refer": [
+			"test.html",
+			"intervene.html"
+		]
+	},
+	"report_old.html": {
+		"resources": [
+			"report.html",
+			"system.html",
+			"js/hammer.min.js",
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/foot.css",
+			"css/public.css",
+			"css/head.css",
+			"js/foot.js"
+		],
+		"refer": [
+			"report.html",
+			"system.html"
+		]
+	},
+	"intervene.html": {
+		"resources": [
+			"css/iconfont.ttf",
+			"js/zepto.min.js",
+			"js/public.js",
+			"testdetail.html",
+			"css/head.css",
+			"css/public.css",
+			"report.html"
+		],
+		"refer": [
+			"testdetail.html",
+			"report.html",
+			"detaillink.html"
+		]
+	},
+	"info.html": {
+		"refer": [
+			"system.html"
+		],
+		"resources": []
+	},
+	"updatePass.html": {
+		"refer": [
+			"system.html",
+			"index.html"
+		],
+		"resources": [
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/public.css",
+			"css/head.css",
+			"css/mui.min.css"
+		]
+	},
+	"forgetPass.html": {
+		"refer": [
+			"system.html",
+			"index.html",
+			"revisePass.html"
+		],
+		"resources": [
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/public.css",
+			"css/head.css",
+			"css/mui.min.css"
+		]
+	},
+	"revisePass.html": {
+		"refer": [
+			"forgetPass.html",
+			"index.html"
+		],
+		"resources": [
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/public.css",
+			"css/head.css",
+			"css/mui.min.css"
+		]
+	},
+	"topic.html": {
+		"refer": [
+			"setting.html",
+			"test.html",
+			"report.html",
+			"main.html",
+			"detailPage.html",
+			"category_zl.html",
+			"category_sq.html"
+		],
+		"resources": [
+			"js/mui.min.js",
+			"css/topic.css",
+			"css/mui.min.css",
+			"img/p2.jpg",
+			"img/p1.jpg",
+			"img/p3.jpg",
+			"main.html",
+			"detailPage.html",
+			"css/iconfont.ttf",
+			"js/zepto.min.js",
+			"js/public.js",
+			"js/foot.js",
+			"css/public.css",
+			"css/foot.css",
+			"img/head.png",
+			"test.html",
+			"img/head-bg.jpg"
+		]
+	},
+	"detailPage.html": {
+		"refer": [
+			"topic.html",
+			"category_sq.html",
+			"category_zl.html"
+		],
+		"resources": [
+			"css/detailPage.css",
+			"css/head.css",
+			"topic.html",
+			"css/iconfont.ttf",
+			"js/mui.min.js",
+			"js/zepto.min.js",
+			"js/public.js",
+			"css/public.css",
+			"css/foot.css",
+			"img/head-bg.jpg"
+		]
+	},
+	"category_zl.html": {
+		"refer": [
+			"topic.html",
+			"detailPage.html"
+		],
+		"resources": [
+			"css/head.css",
+			"js/zepto.min.js",
+			"js/public.js",
+			"js/mui.min.js",
+			"css/foot.css",
+			"css/public.css"
+		]
+	},
+	"category_sq.html": {
+		"refer": [
+			"topic.html",
+			"detailPage.html"
+		],
+		"resources": [
+			"js/zepto.min.js",
+			"js/public.js",
+			"js/mui.min.js",
+			"css/foot.css",
+			"css/head.css",
+			"css/public.css",
+			"css/iconfont.ttf",
+			"img/head-bg.jpg"
+		]
+	},
+	"detaillink.html": {
+		"href": "detaillink.html",
+		"resources": [
+			"js/zepto.min.js",
+			"js/public.js",
+			"js/hammer.min.js",
+			"css/public.css",
+			"css/head.css",
+			"css/testdetail.css"
+		],
+		"refer": [],
+		"priority": 0
+	},
+	"store.html": {
+		"refer": [
+			"test.html",
+			"setting.html",
+			"main.html",
+			"Store/own.html",
+			"Store/order.html",
+			"Store/car.html",
+			"topic.html",
+			"Store/goods.html"
+		]
+	},
+	"Store/own.html": {
+		"refer": [
+			"Store/collect.html",
+			"Store/address.html"
+		]
+	},
+	"Store/address.html": {
+		"refer": [
+			"Store/edit_address.html"
+		]
+	},
+	"Store/order.html": {
+		"refer": [
+			"Store/address.html"
+		]
+	}
+}

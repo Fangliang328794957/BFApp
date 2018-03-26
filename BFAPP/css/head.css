@@ -1,0 +1,7 @@
+header{background-color: #15B175; height: 3rem; line-height: 3rem; color: #FFF; position: relative; z-index: 0;}
+header span{display: block; min-width: 2rem; -webkit-tap-highlight-color:transparent; }
+header span.title{ position: absolute; width: 100%; font-size: 1.2rem; text-align: center; pointer-events: none;}
+header span.title1{ position: absolute; width: 100%; font-size: 1.2rem; text-align: center; pointer-events: none;}
+header span.left{ float: left; margin-left: 1rem;font-size: .9rem;}
+header span.right{ float: right; margin-right: 1rem;font-size: .9rem; }
+header span.back:before{content: '\e62f';font-family: app;vertical-align: text-bottom; font-size: 1.5rem;margin: 0 0 0 -.8rem;}

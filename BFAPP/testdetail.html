@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/hammer.min.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css" />
+    	<link rel="stylesheet" type="text/css" href="css/testdetail.css"/>
+ 
+	</head>
+	<body ontouchstart>
+		
+		<header>
+			<span class="left back"></span>
+			<span class="title"></span>
+		</header>
+		
+		<div class="content">
+			<div id="title">中班</div>
+			<div id="tabhead">
+				<span class="selected">详细数据</span>
+				<span>比比看</span>
+				<samp></samp>
+			</div>
+			<div id="tab0" class="tab selected">
+				<div id="color"><a>成绩</a><a>排名</a><a>评分</a></div>
+				<div id="svg"></div>
+				<div id="detail">
+					<span id="counum" class="vline hline"><i>总次数</i><samp></samp><u>次</u></span>
+					<span id="avgmark" class="vline"><i>平均成绩</i><samp></samp><u></u></span>
+					<span id="num" class="vline hline"><i>当前次数</i><samp></samp><u>次</u></span>
+					<span id="mark" class="vline"><i>成绩</i><samp></samp><u></u><p></p></span>
+					<span id="rank" class="hline"><i>排名</i><u>第</u><samp></samp><u>名</u><p></p></span>
+					<span id="score"><i>评分</i><samp></samp><u>分</u><p></p></span>
+				</div>
+			</div>
+			<div id="tab1" class="tab">
+				<div id="compare">
+					<div id="contrast">
+						<div>
+						    <span data-color="#0fba75" class="selected">班级对比</span>
+						    <span data-color="#7e9ef0">年级对比</span>
+						    <span data-color="#f0a097">全市对比</span>
+						    <span data-color="#ff8cc5">全省对比</span>
+						    <span data-color="#ab6eff">全国对比</span>
+					  	</div>
+					</div>
+				</div>
+				<div id="msg">
+					<span>你在<i></i>所有<u></u>孩中，排名</span>
+					<p></p>
+					<div id="line">
+						<span id="left"></span>
+						<span id="right">1</span>
+						<span id="center"></span>
+						<div id="gray"></div>
+						<div id="green"></div>
+					</div>
+					<div id="mark">
+						<span><i></i>最好成绩<u></u></span>
+						<span><i></i>平均成绩<u></u></span>
+						<span>与最好成绩差距<u></u></span>
+					</div>
+					<div id="memo">- 以上为<i></i>数据，仅供参考 -</div>
+				</div>
+				<div id="intervene">
+					<div class="title"></div>
+					<div id="list"></div>
+					<div id="more">加载更多</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/testdetail.js"></script>
+		<script>	
+			$("#list").delegate("span", "click", function(){
+				//location.href="intervene.html?id="+$(this).attr("data-id");
+				$("#poup").css("-webkit-overflow-scrolling", "touch");
+				var id = $(this).attr("data-id");
+				 console.log(id);
+				$.ajax_({
+					method:"InterveneDetail",
+					data:{id:id},
+					success:function(d){
+						//console.log(JSON.stringify(d));
+						var js = JSON.parse(d.d);
+						console.log(JSON.stringify(d.d));
+						//console.log("======"+js.msg)
+						var a  = {msg:js.msg,linkss:js.link};
+						localStorage.setItem('jsas',JSON.stringify(a));
+						var msg = $.Base64Decode(js.msg); 
+						//console.log( msg )；
+						$.popup({
+							title:'活动建议',
+							content: msg,
+							contlink:js.link
+						});
+						
+					},
+					error:function(){ $.dialog({msg:"请检查网络"}) }
+				});
+				 
+			})
+			var jss = JSON.parse(localStorage.getItem("jsas"));
+
+			if(jss){
+				$('#tabhead span').eq(1).addClass('selected').siblings().removeClass('selected');
+				$('#tabhead samp').css('margin-left','50%')
+				$('#tab1').addClass('selected').siblings().removeClass('selected');
+				var msg = $.Base64Decode(jss.msg); 
+				$.popup({
+					title:'活动建议',
+					content:msg ,
+					contlink:jss.linkss
+				});
+				//localStorage.removeItem("jsas")
+			}
+			
+		</script>
+	</body>
+</html>

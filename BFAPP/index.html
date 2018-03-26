@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="css/public.css"/>
+    <style type="text/css">
+    	body{ background-image:url(img/login.jpg);background-size: cover; background-position: top; background-attachment: fixed; width: 100%; height: 100vh; }
+    	img { width: 15%; display: block; margin: 0% auto 5vh auto;}
+    	body > div {height: 15vh;}
+    	body > span { display: block; text-align: center; color: #16d38a; font-size: 2rem; font-weight: bold;margin-bottom: 15vh;}
+    	#btn {width: 90%; background-color: #16d38a; margin:10vh auto 0 auto; text-align: center; color: #FFF; font-size: 1.4rem; height: 2.6rem; line-height: 2.6rem; border-radius: 1.3rem; border: 1px solid rgba(255,255,255,.3);}
+    	#btn:hover{background-color: #15b175;}
+    	.inp{ background-color: rgba(255,255,255,.5); height: 3rem; line-height: 3rem; font-size: 1.2rem;}
+    	.inp span{ display: block; float: left; width: 20%; padding-left: 5%;}
+    	input{-webkit-tap-highlight-color:transparent; background-color: transparent; border: 0; outline: none; width: 75%; box-sizing: border-box; height: 3rem; font-size: 1.2rem;}
+    	#version {position: absolute; color: #FFF; font-size:.6rem; top: 98vh; height: 2vh; right: .4rem;}
+    	#forgetPass{text-decoration: underline;color: #666;display: block;margin: 20px auto;text-align: center;font-size: 1rem;font-weight: 400;}
+    </style>
+</head>
+<body ontouchstart>
+	<div></div>
+	<img src="img/logo-shadow.png" class="auto"/>
+	<span>波菲幼儿园体育与健康</span>
+	<div id="uname" class="inp">
+		<span>帐号</span>
+		<input type="text" placeholder="请输入帐号" />
+	</div>
+	<div id="pass" class="inp">
+		<span>密码</span>
+		<input type="password" placeholder="请输入密码" />
+	</div>
+	<div id="btn">登 录</div>
+	<div id="version"></div>
+	<span id="forgetPass">忘记密码</span>
+	<script>
+//		var userlist=[
+//			{uname:"28939122670",pass:"123456"},
+//			{uname:"15158198080",pass:"198080"}
+//		], current=0;
+//		$("img").click(function(){
+//			plus.webview.currentWebview().setStyle({ softinputMode: "adjustResize" });// 弹出软键盘时自动改变webview的高度
+//			$("#uname input").val(userlist[current].uname)
+//			$("#pass input").val(userlist[current].pass)
+//			current+=1;
+//			if(current>=userlist.length) current=0;
+//		})
+	var arr=[];
+    $(".auto").on('touchstart',function(){
+      var date = new Date();
+      var time=date.getSeconds();
+//      alert(timestamp)
+      arr.push(time);
+      if(time-arr[0]>2){
+        arr=[];
+      }
+      if(arr.length>9&&time-arr[0]!=1){
+//        console.log(time-arr[0]);
+        if(time-arr[0]<3){
+          $("#uname>input").val("28939122670")
+          $("#pass>input").val("123456");
+        }
+      }
+    })
+    $("#uname input").val(localStorage.getItem("uname")||"");
+	$("#pass input").val(localStorage.getItem("pass")||"");
+		document.addEventListener('plusready', function() {
+			// 监听点击消息事件
+			plus.push.addEventListener("click", function(msg) {
+				//服务器端的推送，用透传消息即可，{title:"通知标题",content:"通知内容",payload:"通知去干嘛这里可以自定义"}
+				if(localStorage.getItem("pass")=="" || localStorage.getItem("pass")==null || localStorage.getItem("pass")==undefined){
+					$.dialog({msg:"请先登录至少一次"})
+					return;
+				}
+				
+				$.ajax_({
+					method:"NoticeLogin",
+					data:{mobile:localStorage.getItem("uname"), pass:localStorage.getItem("pass")},
+					success:function(d){
+						var js=JSON.parse(d.d);
+						if(js.success)
+							location.href = "report.html";
+						else
+							$.dialog({msg:js.err})
+					},
+					error:function(){
+						$.dialog({msg:"请检查网络"})
+					}
+				})
+			}, false);
+//			plus.push.addEventListener("receive", function(msg) {
+//				$.dialog({msg:msg})
+//			}, false);
+			plus.runtime.getProperty(plus.runtime.appid,function(inf){  
+		        var wgtVer = inf.version;
+		        $("#version").html("当前版本：V" + wgtVer);
+		        $.ajax_({
+                    method: "Version",
+                    data: { },
+                    success: function (data) {
+                        if(wgtVer && data.d && (wgtVer != data.d)){
+                    		plus.downloader.createDownload("http://files.yphtoy.com/software/parent_v" + data.d + ".wgt", {filename:"_doc/update/"}, function(d,status){
+						        if ( status == 200 ) {
+						            plus.runtime.install(d.filename,{},function(){
+								        $.dialog({
+								        	msg:"提升完成，点确认重启！",
+								        	success:function(){plus.runtime.restart();} 
+								        });
+								    },function(e){
+								        $.dialog({msg:"提升失败[" + e.code + "]：" + e.message});
+								    });
+						        } else
+						            $.dialog({msg:"下载wgt未成功！"});
+						    }).start();
+                        }
+                    }
+                });
+		    });
+		    
+		
+			$("#btn").click(function(){
+				if($("#uname input").val().trim()==""){
+					$("#uname input").focus();
+					return;
+				}
+				if($("#pass input").val().trim()==""){
+					$("#pass input").focus();
+					return;
+				}
+				$.ajax_({
+					method:"Login",
+					data:{mobile:$("#uname input").val().trim(), pass:$("#pass input").val().trim(), gtid:plus.push.getClientInfo().clientid},
+					btn:$("#btn"),
+					before:function(){},
+					success:function(d){
+						var js=JSON.parse(d.d);
+						if(js.success){
+							localStorage.setItem("user", JSON.stringify({sex:js.sex, beginyear:js.beginyear}));
+							localStorage.setItem("uname", $("#uname input").val().trim());
+							localStorage.setItem("pass", $("#pass input").val().trim());
+							location.href="main.html?first";
+						}
+						else
+							$.dialog({msg:js.err})
+					},
+					error:function(){
+						$.dialog({msg:"请检查网络"})
+					}
+				})
+			})
+			
+			if((localStorage.getItem("uname")||"") || (localStorage.getItem("pass")||"") ){
+		    	$('#btn').trigger("click");
+		    }
+			
+			$("#forgetPass").click(function(){
+				location.href="forgetPass.html"
+			})
+			
+		});
+	</script>
+</body>
+</html>

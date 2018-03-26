@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/head.css" />
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/bodydetail.css"/>
+	</head>
+	<body>
+		<header>
+			<span class="left back"></span>
+			<span class="title">基础测试</span>
+		</header>
+		
+		<div class="content">
+			<div id="compare">
+				<div id="contrast">
+					<div>
+					    <span data-color="#0fba75" class="selected">班级对比</span>
+					    <span data-color="#7e9ef0">年级对比</span>
+					    <span data-color="#f0a097">全市对比</span>
+					    <span data-color="#ff8cc5">全省对比</span>
+					    <span data-color="#ab6eff">全国对比</span>
+				  	</div>
+				</div>
+			</div>
+			
+			<div id="height" class="item"><a name="height"></a>
+				<span><i></i>所有<u></u>孩身高分布</span>
+				<p><a></a><u>人比你矮</u><a></a><u>人比你高</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最矮</span>
+					<span class="right">最高</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最高<u></u></span>
+					<span><i></i>最矮<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="weight" class="item"><a name="weight"></a>
+				<span><i></i>所有<u></u>孩体重分布</span>
+				<p><a></a><u>人比你轻</u><a></a><u>人比你重</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最轻</span>
+					<span class="right">最重</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最重<u></u></span>
+					<span><i></i>最轻<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="bmi" class="item"><a name="bmi"></a>
+				<span><i></i>所有<u></u>孩体指分布</span>
+				<p><a></a><u>人比你小</u><a></a><u>人比你大</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最小</span>
+					<span class="right">最大</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最大<u></u></span>
+					<span><i></i>最小<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="sitheight" class="item"><a name="sitheight"></a>
+				<span><i></i>所有<u></u>孩坐高分布</span>
+				<p><a></a><u>人比你矮</u><a></a><u>人比你高</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最矮</span>
+					<span class="right">最高</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最高<u></u></span>
+					<span><i></i>最小<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="bust" class="item"><a name="bust"></a>
+				<span><i></i>所有<u></u>孩胸围分布</span>
+				<p><a></a><u>人比你小</u><a></a><u>人比你大</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最小</span>
+					<span class="right">最大</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最大<u></u></span>
+					<span><i></i>最小<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="skinfold" class="item"><a name="skinfold"></a>
+				<span><i></i>所有<u></u>孩皮褶厚度分布</span>
+				<p><a></a><u>人比你薄</u><a></a><u>人比你厚</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最薄</span>
+					<span class="right">最厚</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最厚<u></u></span>
+					<span><i></i>最薄<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="eye_left" class="item"><a name="eye"></a>
+				<span><i></i>所有<u></u>孩左眼视力分布</span>
+				<p><a></a><u>人比你差</u><a></a><u>人比你好</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最差</span>
+					<span class="right">最好</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最好<u></u></span>
+					<span><i></i>最差<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="eye_right" class="item">
+				<span><i></i>所有<u></u>孩右眼视力分布</span>
+				<p><a></a><u>人比你差</u><a></a><u>人比你好</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最差</span>
+					<span class="right">最好</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最好<u></u></span>
+					<span><i></i>最差<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="vitalcapacity" class="item"><a name="vitalcapacity"></a>
+				<span><i></i>所有<u></u>孩肺活量分布</span>
+				<p><a></a><u>人比你小</u><a></a><u>人比你大</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最小</span>
+					<span class="right">最大</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最大<u></u></span>
+					<span><i></i>最小<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div>
+			<div id="staticheart" class="item"><a name="staticheart"></a>
+				<span><i></i>所有<u></u>孩静态心率分布</span>
+				<p><a></a><u>人比你慢</u><a></a><u>人比你快</u></p>
+				<div class="line">
+					<div class="gray"></div>
+					<span class="left">最慢</span>
+					<span class="right">最快</span>
+					<span class="center"></span>
+					<div class="green"></div>
+				</div>
+				<div class="mark">
+					<span><i></i>最快<u></u></span>
+					<span><i></i>最慢<u></u></span>
+					<span><i></i>平均<u></u></span>
+				</div>
+			</div> 
+		</div>
+		<script src="js/hammer.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bodydetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

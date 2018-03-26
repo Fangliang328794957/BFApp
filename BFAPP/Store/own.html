@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<title>own</title>
+	</head>
+	<style>
+		@font-face { font-family: "app"; src: url('../css/iconfont.ttf') format('truetype'); }
+		.app { font-family: "app" !important; font-style: normal; -webkit-font-smoothing: antialiased; }
+		*{
+			margin: 0;padding: 0;
+		}
+		header{
+			position: relative;border-bottom: 0.1rem solid #E5E5E5;
+			height: 3rem;width: 100%;
+		}
+		header span{
+			display: block;height: 100%;width: 100%;text-align: center;line-height: 3rem;color: #515151;font-size: 1.2rem;
+		}
+		.back{
+			position: absolute;top:0;left:0;height: 3rem;width: 3rem;font-size: 1rem;text-align: center;line-height: 3rem;font-family: "app";
+		}
+		.title{
+			color: #515151;
+		}
+		.main_con{
+			width: 94vw;height: auto;padding: 3vw;position: absolute;top:3rem;left:0;bottom:0rem;overflow: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+		.main_list{
+			height: 3.5rem;width: 100%;border-bottom: 0.1rem solid #EDEDED;position: relative;cursor: pointer;
+		}
+		.main_list span{
+			display: block;height: 100%;width: 80%;line-height: 3.5rem;font-size: 1rem;margin-left: 0.5rem;color: #585858;
+		}
+		.main_right{
+			position: absolute;top: 0;bottom: 0;margin-bottom: auto;margin-top: auto;right: 0;width: auto;height: 100%;line-height: 3.5rem;
+			color: #BCBCBC;cursor: pointer;
+		}
+		.main_right b:after{
+			font-family: "app";content: "\e62c";
+		}
+		
+	</style>
+	<body ontouchstart>
+		<header>
+			<div class="back mui-action-back">&#xe62d;</div>
+			<span class="title">个人中心</span>
+		</header>
+		<div class="main_con">
+			<div class="main_list">
+				<span>我的积分</span>
+				<div class="main_right">5800积分  赚积分<b></b></div>
+			</div>
+			<div class="main_list">
+				<span>我的收藏</span>
+				<div class="main_right"><b></b></div>
+			</div>
+			<div class="main_list">
+				<span>地址管理</span>
+				<div class="main_right"><b></b></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".main_con .main_list").eq(0).click(function(){
+				console.log("我的积分")
+			})
+			$(".main_con .main_list").eq(1).click(function(){   //我的收藏
+				mui.openWindow({
+					url:"collect.html",
+					id:"collect",
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+			$(".main_con .main_list").eq(2).click(function(){
+				mui.openWindow({
+					url:"address.html",
+					id:"address",
+					waiting:{
+						autoShow:false,
+					}
+				})
+			})
+		})
+	</script>
+</html>

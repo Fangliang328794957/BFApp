@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css"/>
+    	<style type="text/css">
+    		.content{ position: absolute; top: 3rem; bottom: 3.5rem; left: 0; right: 0; overflow: auto;z-index: 1; -webkit-overflow-scrolling: touch;}
+    		.content div{position: relative; color: #FFF; height: 32vh;}
+    		.content img{height: 30vh; width: 100%; object-fit: cover;}
+    		.content samp{ position: absolute; left:0; top: 0; width: 100%; height: 30vh; background-color: rgba(0,0,0,.2);}
+    		.content span{ position: absolute;font-size: 2rem; z-index: 2; top: 1.5rem; left: 2rem;}
+    		.content p{ position: absolute; top: 4rem; left: 2rem; }
+    	</style>
+	</head>
+	<body>
+		<header>
+			<span class="title">测试</span>
+		</header>
+		
+		<div class="content">
+			<div data-id="1">
+				<img src="img/p1.jpg" />
+				<samp></samp>
+				<span>立定跳远</span>
+				<p>训练能力：下肢力量</p>
+			</div>
+			<div data-id="3">
+				<img src="img/p3.jpg" />
+				<samp></samp>
+				<span>10米折返跑</span>
+				<p>训练能力：灵敏素质</p>
+			</div>
+			<div data-id="2">
+				<img src="img/p2.jpg" />
+				<samp></samp>
+				<span>网球掷远</span>
+				<p>训练能力：上肢力量</p>
+			</div>
+			<div data-id="6">
+				<img src="img/p6.jpg" />
+				<samp></samp>
+				<span>双脚连续跳</span>
+				<p>训练能力：下肢力量</p>
+			</div>
+			<div data-id="7">
+				<img src="img/p7.jpg" />
+				<samp></samp>
+				<span>坐位体前屈</span>
+				<p>训练能力：柔韧</p>
+			</div>
+			<div data-id="8">
+				<img src="img/p8.jpg" />
+				<samp></samp>
+				<span>走平衡木</span>
+				<p>训练能力：平衡素质</p>
+			</div>
+			<div data-id="4">
+				<img src="img/p4.jpg" />
+				<samp></samp>
+				<span>10米折返爬</span>
+				<p>训练能力：有氧耐力</p>
+			</div>
+			<div data-id="9">
+				<img src="img/p9.jpg" />
+				<samp></samp>
+				<span>吊环</span>
+				<p>训练能力：上肢力量</p>
+			</div>
+			<div data-id="11">
+				<img src="img/p11.jpg" />
+				<samp></samp>
+				<span>灵敏测试</span>
+				<p>训练能力：灵敏素质</p>
+			</div>
+			<div data-id="5">
+				<img src="img/p5.jpg" />
+				<samp></samp>
+				<span>单脚站立</span>
+				<p>训练能力：平衡素质</p>
+			</div>
+			<div data-id="16">
+				<img src="img/p16.jpg" />
+				<samp></samp>
+				<span>坐高</span>
+				<p>正常范围：40-60cm</p>
+			</div>
+			<div data-id="14">
+				<img src="img/p14.jpg" />
+				<samp></samp>
+				<span>视力</span>
+				<p>正常范围：≥3</p>
+			</div>
+			<div data-id="17">
+				<img src="img/p17.jpg" />
+				<samp></samp>
+				<span>身高体重</span>
+				<p>正常范围：80-130cm</p>
+			</div>
+			<div data-id="12">
+				<img src="img/p12.jpg" />
+				<samp></samp>
+				<span>静态心率</span>
+				<p>正常范围：60-80次/min</p>
+			</div>
+			<div data-id="13">
+				<img src="img/p13.jpg" />
+				<samp></samp>
+				<span>皮褶厚度</span>
+				<p>正常范围：1-2mm</p>
+			</div>
+			
+			<div data-id="15">
+				<img src="img/p15.jpg" />
+				<samp></samp>
+				<span>肺活量</span>
+				<p>正常范围：50-1500ml</p>
+			</div>
+			
+			<div data-id="18">
+				<img src="img/p18.jpg" />
+				<samp></samp>
+				<span>胸围</span>
+				<p>正常范围：50-60cm</p>
+			</div>
+		</div>
+		
+		<footer>
+			<span>我的</span>
+			<span class="selected">测试</span>
+			<span>商城互动</span>
+			<span>设置</span>
+			
+		</footer>
+		<script src="js/foot.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".content div").click(function(){
+				localStorage.removeItem("jsas")
+				location.href="testdetail.html?type="+$(this).attr("data-id");
+			})
+		</script>
+	</body>
+</html>

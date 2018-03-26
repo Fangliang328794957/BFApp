@@ -1,0 +1,107 @@
+.content{position: absolute; top: 3rem; bottom: 0rem; left: 0; right: 0; overflow-y: auto; background: #FFF;z-index: 1; -webkit-overflow-scrolling: touch;}
+#svg { width: 100%; height: 35vh; overflow-x:auto; overflow-y: hidden;}
+#svg svg { height: 100%; width: 100%; }
+#svg text { font-size:.8rem;  text-anchor: middle;  /* 文本水平居中 */ dominant-baseline: middle; /* 文本垂直居中 */ }
+#svg .hline { stroke: #CCC; stroke-width: 1px; stroke-opacity: .3; }
+#svg .vline { stroke: #CCC; stroke-width: 1px; }
+
+#title{text-align: center; font-weight: bold; font-size: 1rem; margin: 1rem;color: #545454;}
+#title:after{content: '\e63f'; font-family:app; font-size: 1.5rem; display: inline-block; vertical-align: sub; color: #545454;}
+#tabhead{ height: 2rem; margin-bottom: 1rem; border-bottom: .2rem solid #F5F5F5; position: relative;}
+#tabhead span{ display: block; float: left; text-align: center; width: 50%; }
+#tabhead span.selected{ color: #15D389;}
+#tabhead span:after{ content: '\e62c'; font-family: app; display: inline-block;}
+#tabhead span.selected:after{ transform: rotate(90deg);}
+#tabhead samp { display: block; float: left; height: .2rem; background-color: #15D389; width: 50%; position: absolute; bottom: -.2rem; }
+
+#color { text-align: center; height: 2rem; line-height: .8rem;}
+#color a{ display: inline-block; font-size: .8rem; margin: 0 0 0 .8rem;}
+#color a:after{ content: ''; display: block;float: left; width: .6rem; height: .6rem; margin:0 .15rem 0 0; }
+#color a:nth-child(1):after{ background-color: #9ed8f4;}
+#color a:nth-child(2):after{ background-color: #b7ddc2;}
+#color a:nth-child(3):after{ background-color: #efb8d3;}
+#detail { margin: 1rem 2rem 0 2rem; text-align: center; }
+#detail .hline { border-right: 1px solid #ECECEC;}
+#detail .vline { border-bottom: 1px solid #ECECEC;}
+#detail:after { content: ''; clear: both; display: block;}
+#detail span { box-sizing: border-box; display: block; width: calc(50% - 1px); margin-right: 1px; height: 14vh; float: left; background-color: #FFF;}
+#detail i { font-size: .8rem; padding: .5rem 0 .5rem 0; color:#777; font-style: normal; display: block;text-align: center;}
+#detail samp { font-size: 2rem; color: #666666;}
+#detail u {font-size: .8rem; color: #777; text-decoration: none; margin-right: .3rem; }
+#detail p {font-size: .8rem; margin: 0; display: block; }
+
+#detail p.u { color: #049FEA; }
+#detail p.d { color: #37B274; }
+#detail p :before { display: inline-block; text-align: right; padding-right: 3px; }
+#detail p.u:before { content: '较上次 ↑ '; }
+#detail p.d:before { content: '较上次 ↓ '; }
+
+.tab{display: none;}
+.tab.selected{display: block;}
+
+#tab0 h1{ text-align: center; font-size: 2rem; color:#F49069; font-weight: normal;}
+
+/*比比看*/
+#compare{ background-image:url(../css/bai.svg), -webkit-linear-gradient(90deg, rgba(255,255,255,.1), rgba(0,0,0,0) 25%, rgba(255,255,255,.3)); -webkit-transition: all 500ms; background-size: cover; background-color: #0fba75; padding:10vw 0; }
+#contrast { width: 50vw; height: 40vw; margin: 0 auto; -webkit-perspective: 500vw; }
+#contrast div { width: 100%; height: 100%; -webkit-transform-style: preserve-3d; margin: 0 auto;-webkit-transition: -webkit-transform 500ms; }
+#contrast div span { display: block; position: absolute; border-radius: .5rem;box-shadow: 0px 5px 5px rgba(0,0,0,.1); color: #FFF; font-size: 1.3rem; width: 50vw; height: 40vw; text-align: center; left: 0vw; top: 0vw; -webkit-backface-visibility: hidden; }
+#contrast div span:before{font-family: app; display: block;font-size: 3rem; padding-top: 3vw;}
+#contrast div span:after{content: '-体质健康从娃娃抓起-'; display: block;font-size: .8rem; padding-top: 2vw; font-weight:100;}
+ 			
+#contrast div span:nth-child(1){background-color:#0fba75;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(2){background-color:#7e9ef0;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(3){background-color:#f0a097;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(4){background-color:#ff8cc5;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(5){background-color:#ab6eff;-webkit-filter:brightness(1.4);}
+#contrast div span:nth-child(1):before{content: '\e63b';}
+#contrast div span:nth-child(2):before{content: '\e63c';}
+#contrast div span:nth-child(3):before{content: '\e63a';}
+#contrast div span:nth-child(4):before{content: '\e63d';}
+#contrast div span:nth-child(5):before{content: '\e63e';}
+
+#msg{ text-align: center; font-size: .9rem; font-family: "微软雅黑";}
+#msg i{font-style: normal;}
+#msg > span{ display: block; padding: 1rem 0 0 0;}
+#msg > span u{ text-decoration: none; }
+#msg > p{ margin: 0.2rem; font-size: 2rem; color: #15D389; }
+#msg #line { position: relative; height: 1rem; width: 70vw; margin: 0 auto;}
+#msg #line *{ position: absolute;}
+#msg #line #green {height: 1px; top: 2px; background-color: #15D389; }
+#msg #line #green:before { content: ''; display: block; width: 10px; height: 10px; border-radius: 50%; background-color: #15D389; position: absolute; right: -5px; top: -5px; }
+#msg #line #gray {height: 1px; top: 2px; width: 100%; background-color: #BFBFBF; right: 0;}
+#msg #line #left { display: block; width: 3rem; text-align: center; color: #666666; left: -1.5rem;}
+#msg #line #left:before { content: ''; display: block; margin: 0 auto; width: 4px; height: 4px; border-radius: 50%; background-color: #15D389;}
+#msg #line #right {display: block; width: 3rem; text-align: center; color: #666666; right: -1.5rem;}
+#msg #line #right:before { content: ''; display: block; margin: 0 auto; width: 4px; height: 4px; border-radius: 50%; background-color: #BFBFBF;}
+#msg #line #center:before {content: ''; display: block; margin: 0 auto; width: 4px; height: 4px; border-radius: 50%; background-color: #BFBFBF;}
+#msg #line #center.g:before {background-color: #15D389;}
+#msg #line #user {}
+#msg #mark { display: block; clear: both; padding:1rem 0;}
+#msg #mark span{ width: 28vw; display: inline-block; color: #666666; position: relative;}
+#msg #mark span:after{content: ''; display: block; top: .2rem; right: 0; height: 2rem; width: 1px; background-color: #BFBFBF; position: absolute;}
+#msg #mark span:last-child:after{content: none;}
+#msg #mark span u{ display: block;font-size: 1.2rem; line-height: 2rem; text-decoration: none; color: #414141;}
+#msg #memo { display: block;clear: both; color: #999999; font-size: .7rem;}
+
+/*干预*/
+#intervene {}
+#intervene .title { text-align: center; margin: 0 auto; position: relative; width: 80%; padding: 1rem 0; }
+#intervene .title:after { content: '▪ 活动建议 ▪'; position: relative; width: 80%; font-size: 1rem; font-weight: bold; color: #666666; background-color: #FFF; padding: 0 .6rem;}
+#intervene .title:before { content: ''; height: 1px; background-color: #A7A7A7; width: 100%; display: block; position: absolute;top:1.7rem; }
+#intervene #list {padding-left: 5vw;}
+#intervene #list:after { display: block; content: ''; clear: both;}
+#intervene #list span {display: block; float: left; width: 42.5vw; margin: 0 5vw 1rem 0;}
+#intervene #list span * {display: block; font-style: normal; text-decoration: none;font-size: .9rem; color: #666666;}
+#intervene #list span samp {  padding-top: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; }
+#intervene #list span i { padding-top: .5rem; }
+#intervene #list span u { padding-top: .3rem; clear:none; }
+#intervene #list span u:before {content: '推荐指数：'; float: left;}
+#intervene #list span u strong:after{content: '\e640'; line-height: 18px; font-family: app; float: left; color: #808080; width: 15px;}
+#intervene #list span u strong.t:after{color:#15D389;}
+#intervene #more { display: none; margin: 0 auto 1.5rem auto; width: 40%; border:1px solid #15D389; border-radius: .5rem; text-align: center; height: 2rem; line-height: 2rem; color: #666666;}
+#intervene #more:hover{background-color: rgba(0,0,0,.1);}
+
+
+.contentlink{border: 0 !important; outline: none; text-align: center; position: fixed !important; bottom: 1%; width: 100%; }
+.contentlink a{color: #FFFFFF; text-decoration: none; display: inline-block; background:#FF6CC4; padding: 2% 16%; border-radius: 8px;}

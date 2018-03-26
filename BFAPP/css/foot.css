@@ -1,0 +1,8 @@
+footer{position: absolute; bottom: 0; height: 3.5rem; border-top:1px solid #BFBFBF; box-sizing: border-box; color:#666;display: block;left: 0; right: 0; background-color: #F6F6F6;}
+footer span{ display: block; float: left; width: 25%; height: 3.5rem; text-align: center; font-size: .8rem;}
+footer span.selected{color: #15B175;}
+footer span:before{ font-family: app; display: block; margin-top: .3rem; font-size: 1.5rem;}
+footer span:nth-child(1):before{ content: '\e624'; }  /*我的*/
+footer span:nth-child(2):before{ content: '\e625'; }  /*测试*/
+footer span:nth-child(4):before{ content: '\e62b'; }  /*设置*/
+footer span:nth-child(3):before{ content: '\e65a'; }  /*商城互动*/

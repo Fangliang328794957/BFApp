@@ -1,0 +1,35 @@
+body{ background-image: -webkit-linear-gradient(90deg, #009788, #15d389);}
+header{ height: 3rem; line-height: 3rem; color: #FFF; position: relative;}
+header span{display: block; min-width: 2rem; -webkit-tap-highlight-color:transparent; }
+header span.left{ float: left; margin-left: 1rem;font-size: .9rem;}
+header span.right{ float: right; margin-right: 1rem;font-size: .9rem; }
+header span.back:before{content: '\e62f';font-family: app;vertical-align: text-bottom; font-size: 1.5rem;margin: 0 0 0 -.8rem;}
+
+.content{position: absolute; top: 3rem; bottom: 0; left: 0; right: 0; overflow-y: auto; z-index: 1; -webkit-overflow-scrolling: touch;}
+#title{ text-align: center; color: #FFF; font-size: 2rem; line-height: 2.5rem;}
+#title span{display: block; font-size: .9rem;}
+#title span i{font-style: normal; font-size: 1.4rem; padding-right: .3rem;}
+
+.title{ display: block; width: 90%; margin: 2rem auto 0 auto; font-weight: bold; font-size: 1.2rem; line-height: 3rem; border-bottom: 1px solid rgba(255,255,255,.5); color: #FFF;}
+.item {color: #FFF;}
+.item > div{height: 2rem; padding: 1rem 3vw 0 3vw;}
+.item > div > span{font-size: .9rem; line-height: 2rem; display: block; float: left; width: 21vw; padding-right: 3vw; text-align: right; }
+.item > div > samp{font-size: 1.6rem; color: #00FF97; display: block; float: left; width: 30vw; text-align: left; line-height: 1.6; }
+.item > div > i {font-style: normal; display: -webkit-box; -webkit-box-align: center; font-size: .9rem; width: 40vw; height: 2rem;}
+#staticheart u{font-size: 1rem; text-decoration: none;}
+.fen > div > samp {width: 10vw;}
+.fen > div > i {width: 60vw;}
+
+#svg { text-align: center; height: 80vw; }
+#svg svg {width: 100%; height: 100%;}
+text {font-size:.8rem; text-anchor: middle;  /* 文本水平居中 */ dominant-baseline: middle; /* 文本垂直居中 */ }
+
+#intervene #list {padding:1rem 0 0 5vw; }
+#intervene #list:after { display: block; content: ''; clear: both;}
+#intervene #list span {display: block; float: left; width: 42.5vw; margin: 0 5vw 1rem 0;}
+#intervene #list span * {display: block; font-style: normal; text-decoration: none;font-size: .9rem; color: #FFF;}
+#intervene #list span samp {  padding-top: 100%; background-size: cover; background-repeat: no-repeat; background-position: center; }
+#intervene #list span u { padding-top: .3rem; clear:none; }
+#intervene #list span u:before {content: '能力：'; float: left;}
+#intervene #more { display: none; margin: 0 auto 1.5rem auto; width: 40%; border:1px solid #15D389; border-radius: .5rem; text-align: center; height: 2rem; line-height: 2rem; color: #666666;}
+#intervene #more:hover{background-color: rgba(0,0,0,.1);}

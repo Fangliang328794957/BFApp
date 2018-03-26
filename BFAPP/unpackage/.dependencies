@@ -1,0 +1,121 @@
+{
+  "detaillink.html": {
+    "href": "detaillink.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "js/hammer.min.js",
+      "css/public.css",
+      "css/iconfont.ttf",
+      "css/head.css",
+      "css/testdetail.css",
+      "css/bai.svg"
+    ],
+    "priority": 0
+  },
+  "category_zl.html": {
+    "href": "category_zl.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "js/mui.min.js",
+      "css/foot.css",
+      "css/public.css",
+      "css/iconfont.ttf"
+    ],
+    "refer": [],
+    "priority": 1
+  },
+  "category_sq.html": {
+    "href": "category_sq.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "js/mui.min.js",
+      "css/foot.css",
+      "css/head.css",
+      "css/public.css",
+      "css/iconfont.ttf"
+    ],
+    "refer": [],
+    "priority": 2
+  },
+  "intervene.html": {
+    "href": "intervene.html",
+    "resources": [],
+    "refer": [
+      "detaillink.html"
+    ],
+    "priority": 4
+  },
+  "updatePass.html": {
+    "href": "updatePass.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "css/public.css",
+      "css/iconfont.ttf",
+      "css/head.css",
+      "css/mui.min.css"
+    ],
+    "refer": [],
+    "priority": 7
+  },
+  "report_old.html": {
+    "href": "report_old.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "css/foot.css",
+      "css/public.css",
+      "css/iconfont.ttf",
+      "css/head.css",
+      "js/foot.js"
+    ],
+    "refer": [],
+    "priority": 8
+  },
+  "main.html": {
+    "href": "main.html",
+    "resources": [],
+    "refer": [
+      "main.html"
+    ],
+    "priority": 1
+  },
+  "revisePass.html": {
+    "href": "revisePass.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "css/public.css",
+      "css/iconfont.ttf",
+      "css/head.css",
+      "css/mui.min.css"
+    ],
+    "refer": [],
+    "priority": 3
+  },
+  "forgetPass.html": {
+    "href": "forgetPass.html",
+    "resources": [
+      "js/zepto.min.js",
+      "js/public.js",
+      "css/public.css",
+      "css/iconfont.ttf",
+      "css/head.css",
+      "css/mui.min.css"
+    ],
+    "refer": [],
+    "priority": 2
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [],
+    "refer": [
+      "detaillink.html",
+      "report.html"
+    ],
+    "priority": 0
+  }
+}

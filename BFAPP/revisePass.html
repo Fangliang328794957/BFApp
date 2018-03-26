@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>重置密码</title>
+    	<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    	<script src="js/public.js"></script>
+    	<link rel="stylesheet" type="text/css" href="css/public.css" />
+    	<link rel="stylesheet" type="text/css" href="css/head.css"/>
+    	<link rel="stylesheet" href="css/mui.min.css" />
+	</head>
+	<style type="text/css">
+		.mui-input-row{
+			background: #fff;border-bottom: 1px solid #f0f0f0;display: flex;justify-content: space-around;
+		}
+		#Btn{
+			margin: 1rem auto;width: 100vw;color: #333;height: 2.4rem;line-height: 2.4rem;
+			background: #fff;text-align: center;font-size: 1rem;
+		}
+	</style>
+	<body>
+		<header>
+			<span class="title">重置密码</span>
+			<span class="left back"></span>
+		</header>
+		<div></div>
+		<div class="mui-input-row">
+		    <label>重置密码</label>
+		    <input type="password" class="mui-input-password" id="oldPass" placeholder="请输入新密码">
+		</div>
+		<div class="mui-input-row">
+		    <label>确认密码</label>
+		    <input type="password" class="mui-input-password" id="newPass" placeholder="请确认新密码">
+		</div>
+		<div id="Btn">确  认</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			//后退
+			$(".left").click(function(){
+				location.href="forgetPass.html";
+			});
+			//重置密码
+			$("#Btn").click(function(){
+				var oldPass=$("#oldPass").val();
+				var newPass=$("#newPass").val();
+				if(!oldPass||!newPass){
+					$.dialog({msg:"重置密码或确认密码不能为空"});  //重置密码或确认密码不能为空
+				}else{
+					//两次密码输入一致
+					if(oldPass==newPass){
+						//发起ajax请求
+						$.ajax_({
+							method:"UpdatePass",
+							data:{"mobile":localStorage.getItem("phoneNum"),"vcode":localStorage.getItem("vcode"),"pass":newPass},
+							success:function(d){
+								if(d.d){
+									$.dialog({msg:"重置成功"});
+									console.log(d.d);
+									location.href="index.html";
+								}else{
+									$.dialog({msg:"重置失败"});
+									console.log(d.d);
+								}
+							}
+						})
+					}else{
+						$.dialog({msg:"两次密码必须一致"});     //两次输入的密码必须一致
+					}		
+				}
+			})
+		})
+	</script>
+</html>
